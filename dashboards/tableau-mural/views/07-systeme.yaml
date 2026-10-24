@@ -1,0 +1,342 @@
+# Vue « Système » — extrait lisible, généré depuis dashboard.json (ne pas éditer)
+icon: mdi:cog-outline
+max_columns: 4
+path: systeme
+sections:
+- type: grid
+  column_span: 4
+  cards:
+  - type: custom:maison-stat-card
+    name: Mises à jour
+    icon: mdi:package-up
+    color: violet
+    grid_options:
+      columns: 12
+      rows: 2
+    compute: updates
+    navigation_path: /config/updates
+    secondary: Touchez pour les voir
+  - type: custom:maison-stat-card
+    name: Trafic Internet ↓
+    icon: mdi:download-network
+    color: ocean
+    grid_options:
+      columns: 12
+      rows: 2
+    entity: sensor.x55_vitesse_de_telechargement
+    decimals: 1
+    secondary_entity: sensor.x55_vitesse_de_telechargement_montant
+    secondary_prefix: '↑ '
+  - type: custom:maison-stat-card
+    name: Home Assistant
+    icon: mdi:home-assistant
+    color: mint
+    grid_options:
+      columns: 12
+      rows: 2
+    entity: update.home_assistant_core_update
+    attribute: installed_version
+    unit: ''
+    secondary: Home Assistant OS 18.3
+  - type: custom:maison-stat-card
+    name: Hilo
+    icon: mdi:router-network
+    color: sun
+    grid_options:
+      columns: 12
+      rows: 2
+    entity: sensor.hilo_gateway
+    unit: ''
+    states:
+      'on': En ligne
+      'off': Hors ligne
+    secondary_entity: sensor.notifications_hilo
+    secondary_prefix: 'Notifications : '
+    secondary_unit: ''
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Connectivité
+    heading_style: title
+    icon: mdi:lan
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: binary_sensor.bibliotheque_x55_etat_du_reseau_etendu_wan
+      name: Internet
+      icon: mdi:web
+      states:
+        'on': Connecté
+        'off': Coupé
+      tone:
+        'on': good
+        'off': bad
+      metrics:
+      - entity: sensor.x55_vitesse_de_telechargement
+        prefix: '↓ '
+        decimals: 0
+    - entity: binary_sensor.zigbee2mqtt_bridge_connection_state
+      name: Pont Zigbee
+      icon: mdi:zigbee
+      states:
+        'on': Connecté
+        'off': Déconnecté
+      tone:
+        'on': good
+        'off': bad
+      metrics:
+      - entity: sensor.zigbee2mqtt_bridge_version
+        prefix: v
+    - entity: sensor.800_series_long_range_usb_controller_statut
+      name: Contrôleur Z-Wave
+      icon: mdi:z-wave
+      states:
+        ready: Prêt
+      tone:
+        ready: good
+    - entity: sensor.serrure_etat_du_noeud
+      name: Serrure (Z-Wave)
+      icon: mdi:lock-smart
+      states:
+        alive: Active
+        dead: Hors ligne
+        asleep: En veille
+      tone:
+        alive: good
+        dead: bad
+    - entity: sensor.hilo_gateway
+      name: Passerelle Hilo
+      icon: mdi:router-network
+      states:
+        'on': En ligne
+        'off': Hors ligne
+      tone:
+        'on': good
+        'off': bad
+    - entity: sensor.niro_data
+      name: Kia Connect
+      icon: mdi:car-connected
+      states:
+        'on': Connecté
+        'off': Déconnecté
+      tone:
+        'on': good
+        'off': bad
+      metrics:
+      - entity: sensor.niro_derniere_interrogation
+        prefix: 'Mise à jour '
+    - entity: sensor.local_ip
+      name: Adresse Home Assistant
+      icon: mdi:ip-network
+      tone_fixed: info
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Batteries
+    heading_style: title
+    icon: mdi:battery-heart-variant
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: sensor.serrure_battery_level
+      name: Serrure d'entrée
+      icon: mdi:lock
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.entree_door_sensor_battery
+      name: Capteur porte d'entrée
+      icon: mdi:door-sensor
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.sdb_haut_motion_sensor_battery
+      name: Mouvement salle de bain
+      icon: mdi:motion-sensor
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.salle_technique_water_leak_battery
+      name: Détecteur de fuite
+      icon: mdi:water-alert
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.sous_sol_humidity_battery
+      name: Capteur salle familiale
+      icon: mdi:thermometer
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.serrure_button_battery
+      name: Bouton d'entrée
+      icon: mdi:gesture-tap-button
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.saff_iphone_battery_level
+      name: iPhone Saff
+      icon: mdi:cellphone
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.niro_car_battery_level
+      name: Niro (12 V)
+      icon: mdi:car-battery
+      gauge:
+        warn_below: 40
+        bad_below: 20
+    - entity: sensor.carnival_car_battery_level
+      name: Carnival (12 V)
+      icon: mdi:car-battery
+      gauge:
+        warn_below: 40
+        bad_below: 20
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Maintenance
+    heading_style: title
+    icon: mdi:wrench-cog
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: heading
+    heading: Sauvegardes
+    heading_style: subtitle
+    icon: mdi:backup-restore
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: sensor.backup_last_successful_automatic_backup
+      name: Dernière sauvegarde réussie
+      icon: mdi:cloud-check
+      tone_fixed: good
+    - entity: sensor.backup_next_scheduled_automatic_backup
+      name: Prochaine sauvegarde
+      icon: mdi:calendar-clock
+      tone_fixed: info
+    - entity: sensor.backup_backup_manager_state
+      name: Gestionnaire
+      icon: mdi:cog-sync
+      states:
+        idle: En attente
+        create_backup: Sauvegarde en cours…
+        restore_backup: Restauration…
+      tone:
+        idle: good
+        create_backup: warn
+  - type: heading
+    heading: Versions
+    heading_style: subtitle
+    icon: mdi:tag-outline
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: update.home_assistant_core_update
+      name: Home Assistant
+      icon: mdi:home-assistant
+      attribute: installed_version
+      tone:
+        'off': info
+        'on': warn
+    - entity: update.home_assistant_operating_system_update
+      name: Système d'exploitation
+      icon: mdi:linux
+      attribute: installed_version
+      tone:
+        'off': info
+        'on': warn
+    - entity: update.zigbee2mqtt_mise_a_jour
+      name: Zigbee2MQTT
+      icon: mdi:zigbee
+      attribute: installed_version
+      tone:
+        'off': info
+        'on': warn
+    - entity: update.z_wave_js_ui_mise_a_jour
+      name: Z-Wave JS UI
+      icon: mdi:z-wave
+      attribute: installed_version
+      tone:
+        'off': info
+        'on': warn
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Imprimante Epson
+    heading_style: title
+    icon: mdi:printer
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: sensor.epson_et_3850_series
+      name: EPSON ET-3850
+      icon: mdi:printer
+      states:
+        idle: Prête
+        printing: Impression…
+        stopped: Arrêtée
+      tone:
+        idle: good
+        printing: info
+        stopped: warn
+  - type: tile
+    entity: sensor.epson_et_3850_series_black_ink
+    name: Noir
+    color: grey
+    features:
+    - type: bar-gauge
+      min: 0
+      max: 100
+    grid_options:
+      columns: 6
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: sensor.epson_et_3850_series_cyan_ink
+    name: Cyan
+    color: cyan
+    features:
+    - type: bar-gauge
+      min: 0
+      max: 100
+    grid_options:
+      columns: 6
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: sensor.epson_et_3850_series_magenta_ink
+    name: Magenta
+    color: pink
+    features:
+    - type: bar-gauge
+      min: 0
+      max: 100
+    grid_options:
+      columns: 6
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: sensor.epson_et_3850_series_yellow_ink
+    name: Jaune
+    color: yellow
+    features:
+    - type: bar-gauge
+      min: 0
+      max: 100
+    grid_options:
+      columns: 6
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+theme: Frosted Glass Dark
+title: Système
+type: sections

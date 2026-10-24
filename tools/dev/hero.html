@@ -1,0 +1,14 @@
+<html><body style="background:#0b0e1f;margin:0;padding:20px;width:1900px">
+<script>customElements.define('ha-icon', class extends HTMLElement{connectedCallback(){this.style.cssText='display:inline-block;width:var(--mdc-icon-size,24px);height:var(--mdc-icon-size,24px);background:currentColor;border-radius:50%'}});</script>
+<script src="../../www/maison-cards/maison-cards.js"></script>
+<maison-hero-card id="h"></maison-hero-card>
+<script>
+const st=(id,state,attrs={})=>[id,{entity_id:id,state,attributes:attrs}];
+const states=Object.fromEntries([st('weather.laval_previsions','clear-night',{temperature:6}),st('sensor.laval_haute_temperature','15'),st('sensor.laval_basse_temperature','3'),st('sensor.laval_condition_actuelle','Dégagé'),
+st('lock.serrure','locked'),st('binary_sensor.entree_door_sensor_contact','off'),st('binary_sensor.salle_technique_water_leak_water_leak','off'),st('zone.home','3'),st('sensor.defi_hilo','off'),
+st('update.a','on'),st('update.b','on'),
+...['salon','gars','filles'].map((n,i)=>st('climate.thermostat_'+n,'heat',{current_temperature:19.5+i,hvac_action:i==0?'heating':'idle'}))]);
+const d=(o)=>{const x=new Date();x.setDate(x.getDate()+o);return x.toISOString()};
+const hass={states,connection:{subscribeMessage:(cb)=>{setTimeout(()=>cb({forecast:[{datetime:d(0),condition:'clear-night',temperature:null,templow:3},{datetime:d(1),condition:'sunny',temperature:15,templow:2},{datetime:d(2),condition:'sunny',temperature:11,templow:3},{datetime:d(3),condition:'partlycloudy',temperature:14,templow:5},{datetime:d(4),condition:'rainy',temperature:16,templow:7}]}),50);return Promise.resolve(()=>{})}}};
+const h=document.getElementById('h');h.setConfig({name:'Safouene'});h.hass=hass;
+</script></body></html>

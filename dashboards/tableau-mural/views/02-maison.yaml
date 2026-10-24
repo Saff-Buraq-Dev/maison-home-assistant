@@ -1,0 +1,9 @@
+# Vue « Maison 3D » — extrait lisible, généré depuis dashboard.json (ne pas éditer)
+cards:
+- title: Ma maison
+  type: custom:maison-3d-card
+icon: mdi:cube-scan
+path: maison
+theme: Frosted Glass Dark
+title: Maison 3D
+type: panel

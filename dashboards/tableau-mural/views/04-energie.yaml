@@ -1,0 +1,335 @@
+# Vue « Énergie » — extrait lisible, généré depuis dashboard.json (ne pas éditer)
+icon: mdi:lightning-bolt
+max_columns: 4
+path: energie
+sections:
+- cards:
+  - color: sun
+    entity: sensor.meter00_power
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:flash
+    name: Puissance actuelle
+    type: custom:maison-stat-card
+  - color: ocean
+    entity: sensor.hydro_quebec_maison_conso_totale
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:counter
+    max: sensor.hydro_quebec_maison_conso_totale_projetee
+    max_label: du projeté
+    name: Conso période
+    type: custom:maison-stat-card
+  - color: mint
+    decimals: 2
+    entity: sensor.hydro_quebec_maison_facture_projetee
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:cash-multiple
+    name: Facture projetée
+    type: custom:maison-stat-card
+  - color: violet
+    entity: sensor.hydro_quebec_maison_jour_periode_facturation
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:calendar-clock
+    max: sensor.hydro_quebec_maison_duree_periode_facturation
+    max_label: du cycle
+    name: Cycle de facturation
+    secondary: jours écoulés
+    type: custom:maison-stat-card
+    unit: ''
+  - color: rose
+    entity: sensor.hydro_quebec_maison_moyenne_quotidienne_conso
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:chart-bell-curve
+    name: Moyenne / jour
+    secondary_entity: sensor.hydro_quebec_maison_moyenne_quotidienne_facture
+    secondary_prefix: '≈ '
+    type: custom:maison-stat-card
+  - color: slate
+    decimals: 2
+    entity: sensor.hydro_quebec_maison_solde
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:wallet
+    name: Solde du compte
+    type: custom:maison-stat-card
+  - color: mint
+    decimals: 3
+    entity: sensor.hydro_quebec_maison_cout_moyen_kwh
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:currency-usd
+    name: Coût moyen
+    type: custom:maison-stat-card
+    unit: $/kWh
+  - color: fire
+    entity: sensor.water_heater_power
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:water-boiler
+    name: Chauffe-eau
+    secondary_entity: sensor.water_heater_temperature
+    secondary_prefix: 'Eau à '
+    type: custom:maison-stat-card
+  column_span: 4
+  type: grid
+- type: grid
+  column_span: 4
+  cards:
+  - type: heading
+    heading: Prises et équipements
+    heading_style: title
+    icon: mdi:power-plug
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: switch.bureau_saff_plug
+      name: Prise bureau
+      icon: mdi:power-socket-us
+      states:
+        'on': Allumée
+        'off': Éteinte
+      metrics:
+      - entity: sensor.bureau_saff_plug_power
+      - entity: sensor.bureau_saff_plug_energy
+        prefix: 'Total '
+    - entity: switch.water_heater
+      name: Chauffe-eau
+      icon: mdi:water-boiler
+      states:
+        'on': Activé
+        'off': Coupé
+      confirm_off: Couper l'alimentation du chauffe-eau ?
+      metrics:
+      - entity: sensor.water_heater_power
+      - entity: sensor.water_heater_temperature
+        prefix: 'Eau '
+        decimals: 0
+    - entity: sensor.hydro_quebec_maison_etat_panne
+      name: Réseau Hydro-Québec
+      icon: mdi:transmission-tower
+      states:
+        unknown: Aucune panne signalée
+      tone:
+        unknown: good
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Consommation
+    heading_style: title
+    icon: mdi:lightning-bolt
+    tap_action:
+      action: navigate
+      navigation_path: /tableau-mural/energie
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-energy-card
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Puissance
+    heading_style: title
+    icon: mdi:flash
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - apex_config:
+      chart:
+        background: transparent
+        foreColor: '#c7cdf5'
+        height: 260
+        fontFamily: '''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif'
+      grid:
+        borderColor: rgba(255,255,255,.07)
+      legend:
+        show: true
+      stroke:
+        curve: smooth
+      theme:
+        mode: dark
+      tooltip:
+        theme: dark
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }'
+    graph_span: 24h
+    grid_options:
+      columns: full
+    header:
+      colorize_states: true
+      show: true
+      show_states: true
+      title: Puissance · 24 h
+    series:
+    - color: '#f59e0b'
+      entity: sensor.meter00_power
+      group_by:
+        duration: 5min
+        func: avg
+      name: Maison
+      opacity: 0.3
+      stroke_width: 2
+      type: area
+    - color: '#ef4444'
+      entity: sensor.water_heater_power
+      group_by:
+        duration: 5min
+        func: avg
+      name: Chauffe-eau
+      opacity: 0.25
+      stroke_width: 2
+      type: area
+    type: custom:apexcharts-card
+  - type: statistics-graph
+    title: Consommation par jour · 30 jours (Hydro-Québec)
+    entities:
+    - entity: hydroqc:maison_hourly_consumption
+      name: Maison
+      color: '#6d7cff'
+    stat_types:
+    - change
+    period: day
+    days_to_show: 30
+    chart_type: bar
+    hide_legend: true
+    unit: kWh
+    grid_options:
+      columns: full
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .card-header, .card-header .name, h1.card-header { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; padding-bottom: 4px !important; }'
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Chauffage et météo
+    heading_style: title
+    icon: mdi:radiator
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:apexcharts-card
+    graph_span: 24h
+    header:
+      show: true
+      title: Puissance de chauffage vs température extérieure
+      show_states: false
+    apex_config:
+      chart:
+        background: transparent
+        foreColor: '#c7cdf5'
+        height: 380
+        fontFamily: '''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif'
+      theme:
+        mode: dark
+      grid:
+        borderColor: rgba(255,255,255,.07)
+      legend:
+        show: true
+        position: bottom
+      tooltip:
+        theme: dark
+      stroke:
+        curve: smooth
+    series:
+    - entity: sensor.puissance_chauffage_hilo
+      name: Chauffage Hilo
+      type: area
+      color: '#fb923c'
+      opacity: 0.3
+      stroke_width: 2
+      yaxis_id: w
+      group_by:
+        func: avg
+        duration: 10min
+    - entity: sensor.laval_temperature
+      name: Extérieur
+      color: '#38bdf8'
+      stroke_width: 2
+      yaxis_id: t
+      curve: stepline
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }'
+    grid_options:
+      columns: full
+    yaxis:
+    - id: w
+      min: 0
+      decimals: 0
+      apex_config:
+        title:
+          text: W
+    - id: t
+      opposite: true
+      decimals: 0
+      apex_config:
+        title:
+          text: °C
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Humidité · 24 h
+    heading_style: title
+    icon: mdi:water-percent
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:apexcharts-card
+    graph_span: 24h
+    header:
+      show: true
+      title: Humidité
+      show_states: false
+    apex_config:
+      chart:
+        background: transparent
+        foreColor: '#c7cdf5'
+        height: 210
+        fontFamily: '''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif'
+      theme:
+        mode: dark
+      grid:
+        borderColor: rgba(255,255,255,.07)
+      legend:
+        show: true
+        position: bottom
+      tooltip:
+        theme: dark
+      stroke:
+        curve: smooth
+    series:
+    - entity: sensor.sous_sol_humidity_humidity
+      name: Salle familiale
+      color: '#06b6d4'
+      type: area
+      opacity: 0.25
+      stroke_width: 2
+      group_by:
+        func: avg
+        duration: 10min
+    - entity: sensor.laval_humidite
+      name: Extérieur
+      color: '#94a3b8'
+      stroke_width: 2
+      curve: stepline
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }'
+    grid_options:
+      columns: full
+    yaxis:
+    - min: 0
+      max: 100
+      decimals: 0
+theme: Frosted Glass Dark
+title: Énergie
+type: sections

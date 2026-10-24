@@ -1,0 +1,33 @@
+# Ressources de tableau de bord (Paramètres → Tableaux de bord → Ressources)
+# Les 4 modules « maison-* » sont hébergés EN LIGNE dans Home Assistant (URI data:),
+# leur source de vérité est www/maison-cards/. Voir docs/deploiement.md.
+custom:
+  - id: 85fd26ac699d47bd991fe2fb64e2110b
+    type: module
+    source: www/maison-cards/maison-cards.js
+    cards: [maison-3d-card, maison-hero-card, maison-stat-card, maison-energy-card, maison-lights-card]
+  - id: 7ef06aa513914bd89964317c8fb5ca9b
+    type: module
+    source: www/maison-cards/maison-devices.js
+    cards: [maison-devices-card]
+  - id: b01539fbb9bf4550b84dd1fca86ecdad
+    type: module
+    source: www/maison-cards/maison-prayer.js
+    cards: [maison-prayer-card]
+  - id: 5c2fc9a433d14cc9a6d7c0928ddd3268
+    type: module
+    source: www/maison-cards/maison-foot.js
+    cards: [maison-foot-card, maison-foot-team-card]
+  - id: 2a4d4fd790654873b5a1cda5834a1efc
+    type: css
+    url: https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap
+    role: police Inter commune à tout le tableau mural
+hacs:   # cartes communautaires utilisées par le tableau mural (installées via HACS)
+  - lovelace-card-mod        # styles « verre » des cartes natives
+  - apexcharts-card          # graphiques Climat / Énergie
+  - lovelace-mushroom
+  - button-card
+  - lovelace-layout-card
+  - lovelace-auto-entities
+  - platinum-weather-card
+  - vehicle-status-card

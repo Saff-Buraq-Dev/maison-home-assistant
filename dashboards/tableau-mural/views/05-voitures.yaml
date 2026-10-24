@@ -1,0 +1,268 @@
+# Vue « Voitures » — extrait lisible, généré depuis dashboard.json (ne pas éditer)
+icon: mdi:car-multiple
+max_columns: 4
+path: voitures
+sections:
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Niro
+    heading_style: title
+    icon: mdi:car-side
+    badges:
+    - type: entity
+      entity: sensor.niro_derniere_interrogation
+      show_state: true
+      show_icon: true
+      icon: mdi:update
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: picture-entity
+    entity: lock.niro_door_lock
+    name: Niro
+    image: /api/image/serve/52b119fd105f29a179d5065442a55180/original
+    show_state: true
+    show_name: true
+    fit_mode: contain
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: full
+      rows: 4
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; border-radius: 24px !important; overflow: hidden; background: radial-gradient(120% 120% at 50% 0%, rgba(109,124,255,.25), transparent 65%), linear-gradient(160deg,#171c3a,#0e1128) !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; } .footer { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-weight: 600; font-size: 14px; letter-spacing: .02em; background: linear-gradient(0deg, rgba(14,17,40,.85), transparent) !important; padding: 14px 18px !important; }'
+  - type: custom:maison-stat-card
+    entity: sensor.niro_fuel_level
+    name: Essence
+    icon: mdi:gas-station
+    color: sun
+    grid_options:
+      columns: 6
+      rows: 2
+    max: 100
+    max_label: du réservoir
+  - type: custom:maison-stat-card
+    entity: sensor.niro_total_driving_range
+    name: Autonomie
+    icon: mdi:map-marker-distance
+    color: ocean
+    grid_options:
+      columns: 6
+      rows: 2
+    decimals: 0
+  - type: custom:maison-stat-card
+    entity: sensor.niro_odometer
+    name: Odomètre
+    icon: mdi:counter
+    color: slate
+    grid_options:
+      columns: 6
+      rows: 2
+    decimals: 0
+  - type: custom:maison-stat-card
+    entity: sensor.niro_car_battery_level
+    name: Batterie 12 V
+    icon: mdi:car-battery
+    color: mint
+    grid_options:
+      columns: 6
+      rows: 2
+    max: 100
+    max_label: de charge
+  - type: tile
+    entity: lock.niro_door_lock
+    name: Portes
+    features:
+    - type: lock-commands
+    grid_options:
+      columns: 12
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: switch.niro_climate
+      name: Climatisation à distance
+      icon: mdi:air-conditioner
+      states:
+        'on': En marche
+        'off': Arrêtée
+    - entity: binary_sensor.niro_tire_pressure_all
+      name: Pneus
+      icon: mdi:car-tire-alert
+      states:
+        'off': Pression normale
+        'on': Pression basse !
+      tone:
+        'off': good
+        'on': bad
+    - entity: sensor.niro_dtc_count
+      name: Codes d'anomalie
+      icon: mdi:engine-outline
+      states:
+        '0': Aucun
+      tone:
+        '0': good
+    - entity: sensor.niro_geocoded_location
+      name: Position
+      icon: mdi:map-marker
+      more_info: device_tracker.niro_location
+  - type: heading
+    heading: Propre à la Niro (hybride rechargeable)
+    heading_style: subtitle
+    icon: mdi:star-outline
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: sensor.niro_ev_battery_level
+      name: Batterie hybride
+      icon: mdi:battery-charging-medium
+      show_state: false
+      metrics:
+      - entity: sensor.niro_ev_battery_level
+        decimals: 0
+      - entity: sensor.niro_ev_range
+        prefix: 'Autonomie élec. '
+        decimals: 0
+    - entity: switch.niro_ev_charging
+      name: Recharge
+      icon: mdi:ev-station
+      states:
+        'on': En cours
+        'off': Arrêtée
+      metrics:
+      - entity: sensor.niro_estimated_station_charge_duration
+        prefix: 'Borne : '
+        decimals: 0
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Carnival
+    heading_style: title
+    icon: mdi:car-side
+    badges:
+    - type: entity
+      entity: sensor.carnival_derniere_interrogation
+      show_state: true
+      show_icon: true
+      icon: mdi:update
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: picture-entity
+    entity: lock.carnival_door_lock
+    name: Carnival
+    image: /api/image/serve/24ebc4ea7044b2804ae0fccfda9e3f9d/original
+    show_state: true
+    show_name: true
+    fit_mode: contain
+    tap_action:
+      action: more-info
+    grid_options:
+      columns: full
+      rows: 4
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; border-radius: 24px !important; overflow: hidden; background: radial-gradient(120% 120% at 50% 0%, rgba(109,124,255,.25), transparent 65%), linear-gradient(160deg,#171c3a,#0e1128) !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; } .footer { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-weight: 600; font-size: 14px; letter-spacing: .02em; background: linear-gradient(0deg, rgba(14,17,40,.85), transparent) !important; padding: 14px 18px !important; }'
+  - type: custom:maison-stat-card
+    entity: sensor.carnival_fuel_level
+    name: Essence
+    icon: mdi:gas-station
+    color: sun
+    grid_options:
+      columns: 6
+      rows: 2
+    max: 100
+    max_label: du réservoir
+  - type: custom:maison-stat-card
+    entity: sensor.carnival_total_driving_range
+    name: Autonomie
+    icon: mdi:map-marker-distance
+    color: ocean
+    grid_options:
+      columns: 6
+      rows: 2
+    decimals: 0
+  - type: custom:maison-stat-card
+    entity: sensor.carnival_odometer
+    name: Odomètre
+    icon: mdi:counter
+    color: slate
+    grid_options:
+      columns: 6
+      rows: 2
+    decimals: 0
+  - type: custom:maison-stat-card
+    entity: sensor.carnival_car_battery_level
+    name: Batterie 12 V
+    icon: mdi:car-battery
+    color: mint
+    grid_options:
+      columns: 6
+      rows: 2
+    max: 100
+    max_label: de charge
+  - type: tile
+    entity: lock.carnival_door_lock
+    name: Portes
+    features:
+    - type: lock-commands
+    grid_options:
+      columns: 12
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: switch.carnival_climate
+      name: Climatisation à distance
+      icon: mdi:air-conditioner
+      states:
+        'on': En marche
+        'off': Arrêtée
+    - entity: binary_sensor.carnival_tire_pressure_all
+      name: Pneus
+      icon: mdi:car-tire-alert
+      states:
+        'off': Pression normale
+        'on': Pression basse !
+      tone:
+        'off': good
+        'on': bad
+    - entity: sensor.carnival_dtc_count
+      name: Codes d'anomalie
+      icon: mdi:engine-outline
+      states:
+        '0': Aucun
+      tone:
+        '0': good
+    - entity: sensor.carnival_geocoded_location
+      name: Position
+      icon: mdi:map-marker
+      more_info: device_tracker.carnival_location
+  - type: heading
+    heading: Propre à la Carnival
+    heading_style: subtitle
+    icon: mdi:star-outline
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-devices-card
+    devices:
+    - entity: sensor.carnival_last_service
+      name: Dernier entretien
+      icon: mdi:wrench-clock
+      show_state: false
+      metrics:
+      - entity: sensor.carnival_last_service
+        prefix: 'À '
+        decimals: 0
+    - entity: sensor.carnival_next_service
+      name: Prochain entretien
+      icon: mdi:calendar-wrench
+      show_state: false
+      metrics:
+      - entity: sensor.carnival_next_service
+        prefix: 'À '
+        decimals: 0
+theme: Frosted Glass Dark
+title: Voitures
+type: sections

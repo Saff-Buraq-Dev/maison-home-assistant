@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body style="background:#0b0e1f;margin:0;padding:20px;font-family:sans-serif">
+<script>customElements.define('ha-icon', class extends HTMLElement{});</script>
+<script src="../../www/maison-cards/maison-foot.js"></script>
+<div style="display:grid;grid-template-columns:900px;gap:20px"><maison-foot-card id="h"></maison-foot-card></div>
+<div style="display:grid;grid-template-columns:repeat(3,460px);gap:16px;margin-top:20px">
+<maison-foot-team-card id="t1"></maison-foot-team-card><maison-foot-team-card id="t2"></maison-foot-team-card><maison-foot-team-card id="t3"></maison-foot-team-card></div>
+<script>
+(ca=>{
+ const states={}; for(const [k,v] of Object.entries(ca)) states[k]={entity_id:k,state:v,attributes:{}};
+ const hass={states};
+ const h=document.getElementById('h');h.setConfig({});h.hass=hass;
+ ['tun','ca','mu'].forEach((t,i)=>{const c=document.getElementById('t'+(i+1));c.setConfig({team:t});c.hass=hass;});
+})({"sensor.club_africain_a_venir_1": "2026-10-25T21:09|TP Mazembe|CAF Champions League|1|||||https://media.api-sports.io/football/teams/6435.png", "sensor.club_africain_a_venir_2": "2026-10-29T01:09|CA Bizertin|Ligue 1|1|||NS||https://media.api-sports.io/football/teams/981.png", "sensor.club_africain_a_venir_3": "2026-11-01T01:09|Progrès Sakiet Eddaïer|Ligue 1|0|||||/api/platform/v1/ticketing/crests/x.png", "sensor.club_africain_resultat_1": "2026-10-18T01:09|TP Mazembe|CAF Champions League|0|1|1|FT|90|https://media.api-sports.io/football/teams/6435.png", "sensor.club_africain_resultat_2": "2026-10-11T01:09|US Ben Guerdane|Ligue 1|0|1|2|||https://media.api-sports.io/football/teams/986.png", "sensor.club_africain_resultat_3": "2026-09-21T01:09|ES Zarzis|Ligue professionnelle 1|1|1|0|FT|90|https://media.api-sports.io/football/teams/989.png"});
+</script></body></html>

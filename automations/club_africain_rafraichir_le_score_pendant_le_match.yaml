@@ -1,0 +1,17 @@
+# automation.club_africain_rafraichir_le_score_pendant_le_match
+id: '1792717563243'
+alias: Club Africain – rafraîchir le score pendant le match
+description: Pendant un match du Club Africain, relit le calendrier du site du club chaque minute (sinon toutes les 10 min).
+mode: single
+max_exceeded: silent
+triggers:
+- trigger: time_pattern
+  minutes: /1
+conditions:
+- condition: state
+  entity_id: binary_sensor.club_africain_en_direct
+  state: 'on'
+actions:
+- action: homeassistant.update_entity
+  target:
+    entity_id: sensor.club_africain_a_venir_1

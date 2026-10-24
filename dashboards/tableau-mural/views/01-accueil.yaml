@@ -1,0 +1,88 @@
+# Vue « Accueil » — extrait lisible, généré depuis dashboard.json (ne pas éditer)
+icon: mdi:home-heart
+max_columns: 4
+path: accueil
+sections:
+- cards:
+  - name: Safouene
+    type: custom:maison-hero-card
+  column_span: 4
+  type: grid
+- cards:
+  - heading: Énergie
+    heading_style: title
+    icon: mdi:lightning-bolt
+    tap_action:
+      action: navigate
+      navigation_path: /tableau-mural/energie
+    type: heading
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-energy-card
+  column_span: 2
+  type: grid
+- cards:
+  - heading: Prières, agenda & tâches
+    heading_style: title
+    icon: mdi:calendar-star
+    type: heading
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-prayer-card
+    method: ISNA
+    asr: standard
+  - card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .card-header, .card-header .name, h1.card-header { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; padding-bottom: 4px !important; }'
+    entities:
+    - calendar.gharbiz
+    initial_view: listWeek
+    type: calendar
+  - card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .card-header, .card-header .name, h1.card-header { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; padding-bottom: 4px !important; }'
+    entity: todo.liste_dachats
+    type: todo-list
+  column_span: 2
+  type: grid
+- cards:
+  - heading: Lumières
+    heading_style: title
+    icon: mdi:lightbulb-group
+    type: heading
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - lights:
+    - entity: light.decora_smart_800_series_dimmer
+      icon: mdi:ceiling-light
+      name: Chambre des maîtres
+    - entity: light.lumiere_garcons
+      icon: mdi:lightbulb-on
+      name: Chambre des garçons
+    - entity: light.sdb_haut_dimmer
+      name: Salle de bain haut
+      icon: mdi:vanity-light
+    - entity: light.sous_sol_dimmer
+      name: Salle familiale
+      icon: mdi:sofa
+    type: custom:maison-lights-card
+  column_span: 2
+  type: grid
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Football
+    heading_style: title
+    icon: mdi:soccer
+    tap_action:
+      action: navigate
+      navigation_path: /tableau-mural/foot
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:maison-foot-card
+    teams:
+    - tun
+    - ca
+    - mu
+theme: Frosted Glass Dark
+title: Accueil
+type: sections

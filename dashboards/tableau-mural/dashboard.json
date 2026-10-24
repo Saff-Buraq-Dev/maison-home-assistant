@@ -1,0 +1,2082 @@
+{
+  "views": [
+    {
+      "icon": "mdi:home-heart",
+      "max_columns": 4,
+      "path": "accueil",
+      "sections": [
+        {
+          "cards": [
+            {
+              "name": "Safouene",
+              "type": "custom:maison-hero-card"
+            }
+          ],
+          "column_span": 4,
+          "type": "grid"
+        },
+        {
+          "cards": [
+            {
+              "heading": "Énergie",
+              "heading_style": "title",
+              "icon": "mdi:lightning-bolt",
+              "tap_action": {
+                "action": "navigate",
+                "navigation_path": "/tableau-mural/energie"
+              },
+              "type": "heading",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-energy-card"
+            }
+          ],
+          "column_span": 2,
+          "type": "grid"
+        },
+        {
+          "cards": [
+            {
+              "heading": "Prières, agenda & tâches",
+              "heading_style": "title",
+              "icon": "mdi:calendar-star",
+              "type": "heading",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-prayer-card",
+              "method": "ISNA",
+              "asr": "standard"
+            },
+            {
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .card-header, .card-header .name, h1.card-header { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; padding-bottom: 4px !important; }"
+              },
+              "entities": [
+                "calendar.gharbiz"
+              ],
+              "initial_view": "listWeek",
+              "type": "calendar"
+            },
+            {
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .card-header, .card-header .name, h1.card-header { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; padding-bottom: 4px !important; }"
+              },
+              "entity": "todo.liste_dachats",
+              "type": "todo-list"
+            }
+          ],
+          "column_span": 2,
+          "type": "grid"
+        },
+        {
+          "cards": [
+            {
+              "heading": "Lumières",
+              "heading_style": "title",
+              "icon": "mdi:lightbulb-group",
+              "type": "heading",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "lights": [
+                {
+                  "entity": "light.decora_smart_800_series_dimmer",
+                  "icon": "mdi:ceiling-light",
+                  "name": "Chambre des maîtres"
+                },
+                {
+                  "entity": "light.lumiere_garcons",
+                  "icon": "mdi:lightbulb-on",
+                  "name": "Chambre des garçons"
+                },
+                {
+                  "entity": "light.sdb_haut_dimmer",
+                  "name": "Salle de bain haut",
+                  "icon": "mdi:vanity-light"
+                },
+                {
+                  "entity": "light.sous_sol_dimmer",
+                  "name": "Salle familiale",
+                  "icon": "mdi:sofa"
+                }
+              ],
+              "type": "custom:maison-lights-card"
+            }
+          ],
+          "column_span": 2,
+          "type": "grid"
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Football",
+              "heading_style": "title",
+              "icon": "mdi:soccer",
+              "tap_action": {
+                "action": "navigate",
+                "navigation_path": "/tableau-mural/foot"
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-foot-card",
+              "teams": [
+                "tun",
+                "ca",
+                "mu"
+              ]
+            }
+          ]
+        }
+      ],
+      "theme": "Frosted Glass Dark",
+      "title": "Accueil",
+      "type": "sections"
+    },
+    {
+      "cards": [
+        {
+          "title": "Ma maison",
+          "type": "custom:maison-3d-card"
+        }
+      ],
+      "icon": "mdi:cube-scan",
+      "path": "maison",
+      "theme": "Frosted Glass Dark",
+      "title": "Maison 3D",
+      "type": "panel"
+    },
+    {
+      "icon": "mdi:thermometer",
+      "max_columns": 4,
+      "path": "climat",
+      "sections": [
+        {
+          "cards": [
+            {
+              "color": "fire",
+              "compute": "heating",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:fire",
+              "name": "En chauffe",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "ocean",
+              "entity": "sensor.laval_temperature",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:thermometer",
+              "name": "Extérieur",
+              "secondary_entity": "sensor.laval_humidite",
+              "secondary_prefix": "Humidité ",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "violet",
+              "decimals": 0,
+              "entity": "sensor.sous_sol_humidity_humidity",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:water-percent",
+              "name": "Humidité sous-sol",
+              "secondary_entity": "sensor.sous_sol_humidity_temperature",
+              "secondary_prefix": "Salle familiale ",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "mint",
+              "entity": "sensor.hilo_gateway",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:router-network",
+              "name": "Passerelle Hilo",
+              "secondary_entity": "sensor.defi_hilo",
+              "secondary_prefix": "Défi : ",
+              "secondary_unit": "",
+              "states": {
+                "off": "Hors ligne",
+                "on": "En ligne"
+              },
+              "type": "custom:maison-stat-card",
+              "unit": ""
+            }
+          ],
+          "column_span": 4,
+          "type": "grid"
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Thermostats",
+              "heading_style": "title",
+              "icon": "mdi:thermostat",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "heading",
+              "heading": "Rez-de-chaussée",
+              "heading_style": "subtitle",
+              "icon": "mdi:home-floor-0",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_salon",
+              "name": "Salon",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_salle_a_manger",
+              "name": "Salle à manger",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_chambre_des_maitres",
+              "name": "Chambre principale",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_saff",
+              "name": "Bureau Safouene",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_meriem",
+              "name": "Bureau Meriem",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_sdb_haut",
+              "name": "Salle de bain haut",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "heading",
+              "heading": "Sous-sol",
+              "heading_style": "subtitle",
+              "icon": "mdi:home-floor-negative-1",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_salle_familiale",
+              "name": "Salle familiale",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_gars",
+              "name": "Chambre Garçons",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_filles",
+              "name": "Chambre Filles",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "climate.thermostat_sdb_bas",
+              "name": "Salle de bain bas",
+              "vertical": false,
+              "grid_options": {
+                "columns": 6
+              },
+              "features": [
+                {
+                  "type": "target-temperature"
+                }
+              ],
+              "state_content": [
+                "current_temperature",
+                "hvac_action"
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Tendances · 24 h",
+              "heading_style": "title",
+              "icon": "mdi:chart-line",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:apexcharts-card",
+              "graph_span": "24h",
+              "header": {
+                "show": true,
+                "title": "Températures des pièces",
+                "show_states": false
+              },
+              "apex_config": {
+                "chart": {
+                  "background": "transparent",
+                  "foreColor": "#c7cdf5",
+                  "height": 600,
+                  "fontFamily": "'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif"
+                },
+                "theme": {
+                  "mode": "dark"
+                },
+                "grid": {
+                  "borderColor": "rgba(255,255,255,.07)"
+                },
+                "legend": {
+                  "show": true,
+                  "position": "bottom"
+                },
+                "tooltip": {
+                  "theme": "dark"
+                },
+                "stroke": {
+                  "curve": "smooth"
+                }
+              },
+              "series": [
+                {
+                  "entity": "sensor.thermostat_salon_temperature",
+                  "name": "Salon",
+                  "color": "#6d7cff",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_salle_a_manger_temperature",
+                  "name": "Salle à manger",
+                  "color": "#a66bff",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_chambre_des_maitres_temperature",
+                  "name": "Chambre principale",
+                  "color": "#ec4899",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_saff_temperature",
+                  "name": "Bureau Safouene",
+                  "color": "#f59e0b",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_meriem_temperature",
+                  "name": "Bureau Meriem",
+                  "color": "#22c55e",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_sdb_haut_temperature",
+                  "name": "Salle de bain haut",
+                  "color": "#06b6d4",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_salle_familiale_temperature",
+                  "name": "Salle familiale",
+                  "color": "#3b82f6",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_gars_temperature",
+                  "name": "Chambre Garçons",
+                  "color": "#f97316",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_filles_temperature",
+                  "name": "Chambre Filles",
+                  "color": "#14b8a6",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                },
+                {
+                  "entity": "sensor.thermostat_sdb_bas_temperature",
+                  "name": "Salle de bain bas",
+                  "color": "#eab308",
+                  "stroke_width": 2,
+                  "show": {
+                    "in_header": false
+                  }
+                }
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }"
+              },
+              "grid_options": {
+                "columns": "full"
+              }
+            }
+          ]
+        }
+      ],
+      "theme": "Frosted Glass Dark",
+      "title": "Climat",
+      "type": "sections"
+    },
+    {
+      "icon": "mdi:lightning-bolt",
+      "max_columns": 4,
+      "path": "energie",
+      "sections": [
+        {
+          "cards": [
+            {
+              "color": "sun",
+              "entity": "sensor.meter00_power",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:flash",
+              "name": "Puissance actuelle",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "ocean",
+              "entity": "sensor.hydro_quebec_maison_conso_totale",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:counter",
+              "max": "sensor.hydro_quebec_maison_conso_totale_projetee",
+              "max_label": "du projeté",
+              "name": "Conso période",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "mint",
+              "decimals": 2,
+              "entity": "sensor.hydro_quebec_maison_facture_projetee",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:cash-multiple",
+              "name": "Facture projetée",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "violet",
+              "entity": "sensor.hydro_quebec_maison_jour_periode_facturation",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:calendar-clock",
+              "max": "sensor.hydro_quebec_maison_duree_periode_facturation",
+              "max_label": "du cycle",
+              "name": "Cycle de facturation",
+              "secondary": "jours écoulés",
+              "type": "custom:maison-stat-card",
+              "unit": ""
+            },
+            {
+              "color": "rose",
+              "entity": "sensor.hydro_quebec_maison_moyenne_quotidienne_conso",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:chart-bell-curve",
+              "name": "Moyenne / jour",
+              "secondary_entity": "sensor.hydro_quebec_maison_moyenne_quotidienne_facture",
+              "secondary_prefix": "≈ ",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "slate",
+              "decimals": 2,
+              "entity": "sensor.hydro_quebec_maison_solde",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:wallet",
+              "name": "Solde du compte",
+              "type": "custom:maison-stat-card"
+            },
+            {
+              "color": "mint",
+              "decimals": 3,
+              "entity": "sensor.hydro_quebec_maison_cout_moyen_kwh",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:currency-usd",
+              "name": "Coût moyen",
+              "type": "custom:maison-stat-card",
+              "unit": "$/kWh"
+            },
+            {
+              "color": "fire",
+              "entity": "sensor.water_heater_power",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "icon": "mdi:water-boiler",
+              "name": "Chauffe-eau",
+              "secondary_entity": "sensor.water_heater_temperature",
+              "secondary_prefix": "Eau à ",
+              "type": "custom:maison-stat-card"
+            }
+          ],
+          "column_span": 4,
+          "type": "grid"
+        },
+        {
+          "type": "grid",
+          "column_span": 4,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Prises et équipements",
+              "heading_style": "title",
+              "icon": "mdi:power-plug",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "switch.bureau_saff_plug",
+                  "name": "Prise bureau",
+                  "icon": "mdi:power-socket-us",
+                  "states": {
+                    "on": "Allumée",
+                    "off": "Éteinte"
+                  },
+                  "metrics": [
+                    {
+                      "entity": "sensor.bureau_saff_plug_power"
+                    },
+                    {
+                      "entity": "sensor.bureau_saff_plug_energy",
+                      "prefix": "Total "
+                    }
+                  ]
+                },
+                {
+                  "entity": "switch.water_heater",
+                  "name": "Chauffe-eau",
+                  "icon": "mdi:water-boiler",
+                  "states": {
+                    "on": "Activé",
+                    "off": "Coupé"
+                  },
+                  "confirm_off": "Couper l'alimentation du chauffe-eau ?",
+                  "metrics": [
+                    {
+                      "entity": "sensor.water_heater_power"
+                    },
+                    {
+                      "entity": "sensor.water_heater_temperature",
+                      "prefix": "Eau ",
+                      "decimals": 0
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.hydro_quebec_maison_etat_panne",
+                  "name": "Réseau Hydro-Québec",
+                  "icon": "mdi:transmission-tower",
+                  "states": {
+                    "unknown": "Aucune panne signalée"
+                  },
+                  "tone": {
+                    "unknown": "good"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Consommation",
+              "heading_style": "title",
+              "icon": "mdi:lightning-bolt",
+              "tap_action": {
+                "action": "navigate",
+                "navigation_path": "/tableau-mural/energie"
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-energy-card"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Puissance",
+              "heading_style": "title",
+              "icon": "mdi:flash",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "apex_config": {
+                "chart": {
+                  "background": "transparent",
+                  "foreColor": "#c7cdf5",
+                  "height": 260,
+                  "fontFamily": "'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif"
+                },
+                "grid": {
+                  "borderColor": "rgba(255,255,255,.07)"
+                },
+                "legend": {
+                  "show": true
+                },
+                "stroke": {
+                  "curve": "smooth"
+                },
+                "theme": {
+                  "mode": "dark"
+                },
+                "tooltip": {
+                  "theme": "dark"
+                }
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }"
+              },
+              "graph_span": "24h",
+              "grid_options": {
+                "columns": "full"
+              },
+              "header": {
+                "colorize_states": true,
+                "show": true,
+                "show_states": true,
+                "title": "Puissance · 24 h"
+              },
+              "series": [
+                {
+                  "color": "#f59e0b",
+                  "entity": "sensor.meter00_power",
+                  "group_by": {
+                    "duration": "5min",
+                    "func": "avg"
+                  },
+                  "name": "Maison",
+                  "opacity": 0.3,
+                  "stroke_width": 2,
+                  "type": "area"
+                },
+                {
+                  "color": "#ef4444",
+                  "entity": "sensor.water_heater_power",
+                  "group_by": {
+                    "duration": "5min",
+                    "func": "avg"
+                  },
+                  "name": "Chauffe-eau",
+                  "opacity": 0.25,
+                  "stroke_width": 2,
+                  "type": "area"
+                }
+              ],
+              "type": "custom:apexcharts-card"
+            },
+            {
+              "type": "statistics-graph",
+              "title": "Consommation par jour · 30 jours (Hydro-Québec)",
+              "entities": [
+                {
+                  "entity": "hydroqc:maison_hourly_consumption",
+                  "name": "Maison",
+                  "color": "#6d7cff"
+                }
+              ],
+              "stat_types": [
+                "change"
+              ],
+              "period": "day",
+              "days_to_show": 30,
+              "chart_type": "bar",
+              "hide_legend": true,
+              "unit": "kWh",
+              "grid_options": {
+                "columns": "full"
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .card-header, .card-header .name, h1.card-header { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; padding-bottom: 4px !important; }"
+              }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Chauffage et météo",
+              "heading_style": "title",
+              "icon": "mdi:radiator",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:apexcharts-card",
+              "graph_span": "24h",
+              "header": {
+                "show": true,
+                "title": "Puissance de chauffage vs température extérieure",
+                "show_states": false
+              },
+              "apex_config": {
+                "chart": {
+                  "background": "transparent",
+                  "foreColor": "#c7cdf5",
+                  "height": 380,
+                  "fontFamily": "'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif"
+                },
+                "theme": {
+                  "mode": "dark"
+                },
+                "grid": {
+                  "borderColor": "rgba(255,255,255,.07)"
+                },
+                "legend": {
+                  "show": true,
+                  "position": "bottom"
+                },
+                "tooltip": {
+                  "theme": "dark"
+                },
+                "stroke": {
+                  "curve": "smooth"
+                }
+              },
+              "series": [
+                {
+                  "entity": "sensor.puissance_chauffage_hilo",
+                  "name": "Chauffage Hilo",
+                  "type": "area",
+                  "color": "#fb923c",
+                  "opacity": 0.3,
+                  "stroke_width": 2,
+                  "yaxis_id": "w",
+                  "group_by": {
+                    "func": "avg",
+                    "duration": "10min"
+                  }
+                },
+                {
+                  "entity": "sensor.laval_temperature",
+                  "name": "Extérieur",
+                  "color": "#38bdf8",
+                  "stroke_width": 2,
+                  "yaxis_id": "t",
+                  "curve": "stepline"
+                }
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }"
+              },
+              "grid_options": {
+                "columns": "full"
+              },
+              "yaxis": [
+                {
+                  "id": "w",
+                  "min": 0,
+                  "decimals": 0,
+                  "apex_config": {
+                    "title": {
+                      "text": "W"
+                    }
+                  }
+                },
+                {
+                  "id": "t",
+                  "opposite": true,
+                  "decimals": 0,
+                  "apex_config": {
+                    "title": {
+                      "text": "°C"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Humidité · 24 h",
+              "heading_style": "title",
+              "icon": "mdi:water-percent",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:apexcharts-card",
+              "graph_span": "24h",
+              "header": {
+                "show": true,
+                "title": "Humidité",
+                "show_states": false
+              },
+              "apex_config": {
+                "chart": {
+                  "background": "transparent",
+                  "foreColor": "#c7cdf5",
+                  "height": 210,
+                  "fontFamily": "'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif"
+                },
+                "theme": {
+                  "mode": "dark"
+                },
+                "grid": {
+                  "borderColor": "rgba(255,255,255,.07)"
+                },
+                "legend": {
+                  "show": true,
+                  "position": "bottom"
+                },
+                "tooltip": {
+                  "theme": "dark"
+                },
+                "stroke": {
+                  "curve": "smooth"
+                }
+              },
+              "series": [
+                {
+                  "entity": "sensor.sous_sol_humidity_humidity",
+                  "name": "Salle familiale",
+                  "color": "#06b6d4",
+                  "type": "area",
+                  "opacity": 0.25,
+                  "stroke_width": 2,
+                  "group_by": {
+                    "func": "avg",
+                    "duration": "10min"
+                  }
+                },
+                {
+                  "entity": "sensor.laval_humidite",
+                  "name": "Extérieur",
+                  "color": "#94a3b8",
+                  "stroke_width": 2,
+                  "curve": "stepline"
+                }
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }"
+              },
+              "grid_options": {
+                "columns": "full"
+              },
+              "yaxis": [
+                {
+                  "min": 0,
+                  "max": 100,
+                  "decimals": 0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "theme": "Frosted Glass Dark",
+      "title": "Énergie",
+      "type": "sections"
+    },
+    {
+      "icon": "mdi:car-multiple",
+      "max_columns": 4,
+      "path": "voitures",
+      "sections": [
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Niro",
+              "heading_style": "title",
+              "icon": "mdi:car-side",
+              "badges": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.niro_derniere_interrogation",
+                  "show_state": true,
+                  "show_icon": true,
+                  "icon": "mdi:update"
+                }
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "picture-entity",
+              "entity": "lock.niro_door_lock",
+              "name": "Niro",
+              "image": "/api/image/serve/52b119fd105f29a179d5065442a55180/original",
+              "show_state": true,
+              "show_name": true,
+              "fit_mode": "contain",
+              "tap_action": {
+                "action": "more-info"
+              },
+              "grid_options": {
+                "columns": "full",
+                "rows": 4
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; border-radius: 24px !important; overflow: hidden; background: radial-gradient(120% 120% at 50% 0%, rgba(109,124,255,.25), transparent 65%), linear-gradient(160deg,#171c3a,#0e1128) !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; } .footer { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-weight: 600; font-size: 14px; letter-spacing: .02em; background: linear-gradient(0deg, rgba(14,17,40,.85), transparent) !important; padding: 14px 18px !important; }"
+              }
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.niro_fuel_level",
+              "name": "Essence",
+              "icon": "mdi:gas-station",
+              "color": "sun",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "max": 100,
+              "max_label": "du réservoir"
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.niro_total_driving_range",
+              "name": "Autonomie",
+              "icon": "mdi:map-marker-distance",
+              "color": "ocean",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "decimals": 0
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.niro_odometer",
+              "name": "Odomètre",
+              "icon": "mdi:counter",
+              "color": "slate",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "decimals": 0
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.niro_car_battery_level",
+              "name": "Batterie 12 V",
+              "icon": "mdi:car-battery",
+              "color": "mint",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "max": 100,
+              "max_label": "de charge"
+            },
+            {
+              "type": "tile",
+              "entity": "lock.niro_door_lock",
+              "name": "Portes",
+              "features": [
+                {
+                  "type": "lock-commands"
+                }
+              ],
+              "grid_options": {
+                "columns": 12
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "switch.niro_climate",
+                  "name": "Climatisation à distance",
+                  "icon": "mdi:air-conditioner",
+                  "states": {
+                    "on": "En marche",
+                    "off": "Arrêtée"
+                  }
+                },
+                {
+                  "entity": "binary_sensor.niro_tire_pressure_all",
+                  "name": "Pneus",
+                  "icon": "mdi:car-tire-alert",
+                  "states": {
+                    "off": "Pression normale",
+                    "on": "Pression basse !"
+                  },
+                  "tone": {
+                    "off": "good",
+                    "on": "bad"
+                  }
+                },
+                {
+                  "entity": "sensor.niro_dtc_count",
+                  "name": "Codes d'anomalie",
+                  "icon": "mdi:engine-outline",
+                  "states": {
+                    "0": "Aucun"
+                  },
+                  "tone": {
+                    "0": "good"
+                  }
+                },
+                {
+                  "entity": "sensor.niro_geocoded_location",
+                  "name": "Position",
+                  "icon": "mdi:map-marker",
+                  "more_info": "device_tracker.niro_location"
+                }
+              ]
+            },
+            {
+              "type": "heading",
+              "heading": "Propre à la Niro (hybride rechargeable)",
+              "heading_style": "subtitle",
+              "icon": "mdi:star-outline",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "sensor.niro_ev_battery_level",
+                  "name": "Batterie hybride",
+                  "icon": "mdi:battery-charging-medium",
+                  "show_state": false,
+                  "metrics": [
+                    {
+                      "entity": "sensor.niro_ev_battery_level",
+                      "decimals": 0
+                    },
+                    {
+                      "entity": "sensor.niro_ev_range",
+                      "prefix": "Autonomie élec. ",
+                      "decimals": 0
+                    }
+                  ]
+                },
+                {
+                  "entity": "switch.niro_ev_charging",
+                  "name": "Recharge",
+                  "icon": "mdi:ev-station",
+                  "states": {
+                    "on": "En cours",
+                    "off": "Arrêtée"
+                  },
+                  "metrics": [
+                    {
+                      "entity": "sensor.niro_estimated_station_charge_duration",
+                      "prefix": "Borne : ",
+                      "decimals": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Carnival",
+              "heading_style": "title",
+              "icon": "mdi:car-side",
+              "badges": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.carnival_derniere_interrogation",
+                  "show_state": true,
+                  "show_icon": true,
+                  "icon": "mdi:update"
+                }
+              ],
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "picture-entity",
+              "entity": "lock.carnival_door_lock",
+              "name": "Carnival",
+              "image": "/api/image/serve/24ebc4ea7044b2804ae0fccfda9e3f9d/original",
+              "show_state": true,
+              "show_name": true,
+              "fit_mode": "contain",
+              "tap_action": {
+                "action": "more-info"
+              },
+              "grid_options": {
+                "columns": "full",
+                "rows": 4
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; border-radius: 24px !important; overflow: hidden; background: radial-gradient(120% 120% at 50% 0%, rgba(109,124,255,.25), transparent 65%), linear-gradient(160deg,#171c3a,#0e1128) !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; } .footer { font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; font-weight: 600; font-size: 14px; letter-spacing: .02em; background: linear-gradient(0deg, rgba(14,17,40,.85), transparent) !important; padding: 14px 18px !important; }"
+              }
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.carnival_fuel_level",
+              "name": "Essence",
+              "icon": "mdi:gas-station",
+              "color": "sun",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "max": 100,
+              "max_label": "du réservoir"
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.carnival_total_driving_range",
+              "name": "Autonomie",
+              "icon": "mdi:map-marker-distance",
+              "color": "ocean",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "decimals": 0
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.carnival_odometer",
+              "name": "Odomètre",
+              "icon": "mdi:counter",
+              "color": "slate",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "decimals": 0
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "entity": "sensor.carnival_car_battery_level",
+              "name": "Batterie 12 V",
+              "icon": "mdi:car-battery",
+              "color": "mint",
+              "grid_options": {
+                "columns": 6,
+                "rows": 2
+              },
+              "max": 100,
+              "max_label": "de charge"
+            },
+            {
+              "type": "tile",
+              "entity": "lock.carnival_door_lock",
+              "name": "Portes",
+              "features": [
+                {
+                  "type": "lock-commands"
+                }
+              ],
+              "grid_options": {
+                "columns": 12
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "switch.carnival_climate",
+                  "name": "Climatisation à distance",
+                  "icon": "mdi:air-conditioner",
+                  "states": {
+                    "on": "En marche",
+                    "off": "Arrêtée"
+                  }
+                },
+                {
+                  "entity": "binary_sensor.carnival_tire_pressure_all",
+                  "name": "Pneus",
+                  "icon": "mdi:car-tire-alert",
+                  "states": {
+                    "off": "Pression normale",
+                    "on": "Pression basse !"
+                  },
+                  "tone": {
+                    "off": "good",
+                    "on": "bad"
+                  }
+                },
+                {
+                  "entity": "sensor.carnival_dtc_count",
+                  "name": "Codes d'anomalie",
+                  "icon": "mdi:engine-outline",
+                  "states": {
+                    "0": "Aucun"
+                  },
+                  "tone": {
+                    "0": "good"
+                  }
+                },
+                {
+                  "entity": "sensor.carnival_geocoded_location",
+                  "name": "Position",
+                  "icon": "mdi:map-marker",
+                  "more_info": "device_tracker.carnival_location"
+                }
+              ]
+            },
+            {
+              "type": "heading",
+              "heading": "Propre à la Carnival",
+              "heading_style": "subtitle",
+              "icon": "mdi:star-outline",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "sensor.carnival_last_service",
+                  "name": "Dernier entretien",
+                  "icon": "mdi:wrench-clock",
+                  "show_state": false,
+                  "metrics": [
+                    {
+                      "entity": "sensor.carnival_last_service",
+                      "prefix": "À ",
+                      "decimals": 0
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.carnival_next_service",
+                  "name": "Prochain entretien",
+                  "icon": "mdi:calendar-wrench",
+                  "show_state": false,
+                  "metrics": [
+                    {
+                      "entity": "sensor.carnival_next_service",
+                      "prefix": "À ",
+                      "decimals": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "theme": "Frosted Glass Dark",
+      "title": "Voitures",
+      "type": "sections"
+    },
+    {
+      "title": "Foot",
+      "path": "foot",
+      "icon": "mdi:soccer",
+      "type": "sections",
+      "max_columns": 3,
+      "theme": "Frosted Glass Dark",
+      "sections": [
+        {
+          "type": "grid",
+          "column_span": 1,
+          "cards": [
+            {
+              "type": "custom:maison-foot-team-card",
+              "team": "tun"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 1,
+          "cards": [
+            {
+              "type": "custom:maison-foot-team-card",
+              "team": "ca"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 1,
+          "cards": [
+            {
+              "type": "custom:maison-foot-team-card",
+              "team": "mu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "mdi:cog-outline",
+      "max_columns": 4,
+      "path": "systeme",
+      "sections": [
+        {
+          "type": "grid",
+          "column_span": 4,
+          "cards": [
+            {
+              "type": "custom:maison-stat-card",
+              "name": "Mises à jour",
+              "icon": "mdi:package-up",
+              "color": "violet",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "compute": "updates",
+              "navigation_path": "/config/updates",
+              "secondary": "Touchez pour les voir"
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "name": "Trafic Internet ↓",
+              "icon": "mdi:download-network",
+              "color": "ocean",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "entity": "sensor.x55_vitesse_de_telechargement",
+              "decimals": 1,
+              "secondary_entity": "sensor.x55_vitesse_de_telechargement_montant",
+              "secondary_prefix": "↑ "
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "name": "Home Assistant",
+              "icon": "mdi:home-assistant",
+              "color": "mint",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "entity": "update.home_assistant_core_update",
+              "attribute": "installed_version",
+              "unit": "",
+              "secondary": "Home Assistant OS 18.3"
+            },
+            {
+              "type": "custom:maison-stat-card",
+              "name": "Hilo",
+              "icon": "mdi:router-network",
+              "color": "sun",
+              "grid_options": {
+                "columns": 12,
+                "rows": 2
+              },
+              "entity": "sensor.hilo_gateway",
+              "unit": "",
+              "states": {
+                "on": "En ligne",
+                "off": "Hors ligne"
+              },
+              "secondary_entity": "sensor.notifications_hilo",
+              "secondary_prefix": "Notifications : ",
+              "secondary_unit": ""
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Connectivité",
+              "heading_style": "title",
+              "icon": "mdi:lan",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "binary_sensor.bibliotheque_x55_etat_du_reseau_etendu_wan",
+                  "name": "Internet",
+                  "icon": "mdi:web",
+                  "states": {
+                    "on": "Connecté",
+                    "off": "Coupé"
+                  },
+                  "tone": {
+                    "on": "good",
+                    "off": "bad"
+                  },
+                  "metrics": [
+                    {
+                      "entity": "sensor.x55_vitesse_de_telechargement",
+                      "prefix": "↓ ",
+                      "decimals": 0
+                    }
+                  ]
+                },
+                {
+                  "entity": "binary_sensor.zigbee2mqtt_bridge_connection_state",
+                  "name": "Pont Zigbee",
+                  "icon": "mdi:zigbee",
+                  "states": {
+                    "on": "Connecté",
+                    "off": "Déconnecté"
+                  },
+                  "tone": {
+                    "on": "good",
+                    "off": "bad"
+                  },
+                  "metrics": [
+                    {
+                      "entity": "sensor.zigbee2mqtt_bridge_version",
+                      "prefix": "v"
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.800_series_long_range_usb_controller_statut",
+                  "name": "Contrôleur Z-Wave",
+                  "icon": "mdi:z-wave",
+                  "states": {
+                    "ready": "Prêt"
+                  },
+                  "tone": {
+                    "ready": "good"
+                  }
+                },
+                {
+                  "entity": "sensor.serrure_etat_du_noeud",
+                  "name": "Serrure (Z-Wave)",
+                  "icon": "mdi:lock-smart",
+                  "states": {
+                    "alive": "Active",
+                    "dead": "Hors ligne",
+                    "asleep": "En veille"
+                  },
+                  "tone": {
+                    "alive": "good",
+                    "dead": "bad"
+                  }
+                },
+                {
+                  "entity": "sensor.hilo_gateway",
+                  "name": "Passerelle Hilo",
+                  "icon": "mdi:router-network",
+                  "states": {
+                    "on": "En ligne",
+                    "off": "Hors ligne"
+                  },
+                  "tone": {
+                    "on": "good",
+                    "off": "bad"
+                  }
+                },
+                {
+                  "entity": "sensor.niro_data",
+                  "name": "Kia Connect",
+                  "icon": "mdi:car-connected",
+                  "states": {
+                    "on": "Connecté",
+                    "off": "Déconnecté"
+                  },
+                  "tone": {
+                    "on": "good",
+                    "off": "bad"
+                  },
+                  "metrics": [
+                    {
+                      "entity": "sensor.niro_derniere_interrogation",
+                      "prefix": "Mise à jour "
+                    }
+                  ]
+                },
+                {
+                  "entity": "sensor.local_ip",
+                  "name": "Adresse Home Assistant",
+                  "icon": "mdi:ip-network",
+                  "tone_fixed": "info"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Batteries",
+              "heading_style": "title",
+              "icon": "mdi:battery-heart-variant",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "sensor.serrure_battery_level",
+                  "name": "Serrure d'entrée",
+                  "icon": "mdi:lock",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.entree_door_sensor_battery",
+                  "name": "Capteur porte d'entrée",
+                  "icon": "mdi:door-sensor",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.sdb_haut_motion_sensor_battery",
+                  "name": "Mouvement salle de bain",
+                  "icon": "mdi:motion-sensor",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.salle_technique_water_leak_battery",
+                  "name": "Détecteur de fuite",
+                  "icon": "mdi:water-alert",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.sous_sol_humidity_battery",
+                  "name": "Capteur salle familiale",
+                  "icon": "mdi:thermometer",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.serrure_button_battery",
+                  "name": "Bouton d'entrée",
+                  "icon": "mdi:gesture-tap-button",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.saff_iphone_battery_level",
+                  "name": "iPhone Saff",
+                  "icon": "mdi:cellphone",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.niro_car_battery_level",
+                  "name": "Niro (12 V)",
+                  "icon": "mdi:car-battery",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                },
+                {
+                  "entity": "sensor.carnival_car_battery_level",
+                  "name": "Carnival (12 V)",
+                  "icon": "mdi:car-battery",
+                  "gauge": {
+                    "warn_below": 40,
+                    "bad_below": 20
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Maintenance",
+              "heading_style": "title",
+              "icon": "mdi:wrench-cog",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "heading",
+              "heading": "Sauvegardes",
+              "heading_style": "subtitle",
+              "icon": "mdi:backup-restore",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "sensor.backup_last_successful_automatic_backup",
+                  "name": "Dernière sauvegarde réussie",
+                  "icon": "mdi:cloud-check",
+                  "tone_fixed": "good"
+                },
+                {
+                  "entity": "sensor.backup_next_scheduled_automatic_backup",
+                  "name": "Prochaine sauvegarde",
+                  "icon": "mdi:calendar-clock",
+                  "tone_fixed": "info"
+                },
+                {
+                  "entity": "sensor.backup_backup_manager_state",
+                  "name": "Gestionnaire",
+                  "icon": "mdi:cog-sync",
+                  "states": {
+                    "idle": "En attente",
+                    "create_backup": "Sauvegarde en cours…",
+                    "restore_backup": "Restauration…"
+                  },
+                  "tone": {
+                    "idle": "good",
+                    "create_backup": "warn"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "heading",
+              "heading": "Versions",
+              "heading_style": "subtitle",
+              "icon": "mdi:tag-outline",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "update.home_assistant_core_update",
+                  "name": "Home Assistant",
+                  "icon": "mdi:home-assistant",
+                  "attribute": "installed_version",
+                  "tone": {
+                    "off": "info",
+                    "on": "warn"
+                  }
+                },
+                {
+                  "entity": "update.home_assistant_operating_system_update",
+                  "name": "Système d'exploitation",
+                  "icon": "mdi:linux",
+                  "attribute": "installed_version",
+                  "tone": {
+                    "off": "info",
+                    "on": "warn"
+                  }
+                },
+                {
+                  "entity": "update.zigbee2mqtt_mise_a_jour",
+                  "name": "Zigbee2MQTT",
+                  "icon": "mdi:zigbee",
+                  "attribute": "installed_version",
+                  "tone": {
+                    "off": "info",
+                    "on": "warn"
+                  }
+                },
+                {
+                  "entity": "update.z_wave_js_ui_mise_a_jour",
+                  "name": "Z-Wave JS UI",
+                  "icon": "mdi:z-wave",
+                  "attribute": "installed_version",
+                  "tone": {
+                    "off": "info",
+                    "on": "warn"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "column_span": 2,
+          "cards": [
+            {
+              "type": "heading",
+              "heading": "Imprimante Epson",
+              "heading_style": "title",
+              "icon": "mdi:printer",
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }"
+              }
+            },
+            {
+              "type": "custom:maison-devices-card",
+              "devices": [
+                {
+                  "entity": "sensor.epson_et_3850_series",
+                  "name": "EPSON ET-3850",
+                  "icon": "mdi:printer",
+                  "states": {
+                    "idle": "Prête",
+                    "printing": "Impression…",
+                    "stopped": "Arrêtée"
+                  },
+                  "tone": {
+                    "idle": "good",
+                    "printing": "info",
+                    "stopped": "warn"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tile",
+              "entity": "sensor.epson_et_3850_series_black_ink",
+              "name": "Noir",
+              "color": "grey",
+              "features": [
+                {
+                  "type": "bar-gauge",
+                  "min": 0,
+                  "max": 100
+                }
+              ],
+              "grid_options": {
+                "columns": 6
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "sensor.epson_et_3850_series_cyan_ink",
+              "name": "Cyan",
+              "color": "cyan",
+              "features": [
+                {
+                  "type": "bar-gauge",
+                  "min": 0,
+                  "max": 100
+                }
+              ],
+              "grid_options": {
+                "columns": 6
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "sensor.epson_et_3850_series_magenta_ink",
+              "name": "Magenta",
+              "color": "pink",
+              "features": [
+                {
+                  "type": "bar-gauge",
+                  "min": 0,
+                  "max": 100
+                }
+              ],
+              "grid_options": {
+                "columns": 6
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            },
+            {
+              "type": "tile",
+              "entity": "sensor.epson_et_3850_series_yellow_ink",
+              "name": "Jaune",
+              "color": "yellow",
+              "features": [
+                {
+                  "type": "bar-gauge",
+                  "min": 0,
+                  "max": 100
+                }
+              ],
+              "grid_options": {
+                "columns": 6
+              },
+              "card_mod": {
+                "style": "ha-card { --ha-font-family-body:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --ha-font-family-heading:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --mdc-typography-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --paper-font-common-base_-_font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; --primary-font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif; font-family:'Inter','SF Pro Display','Segoe UI',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }"
+              }
+            }
+          ]
+        }
+      ],
+      "theme": "Frosted Glass Dark",
+      "title": "Système",
+      "type": "sections"
+    }
+  ]
+}

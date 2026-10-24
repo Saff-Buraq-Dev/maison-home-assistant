@@ -1,0 +1,86 @@
+# automation.salle_de_bain_haut_lumiere_au_mouvement
+id: '1792639437590'
+alias: Salle de bain haut – lumière au mouvement
+description: 'Allume la lumière au mouvement seulement si elle est éteinte (10 % de 22 h à 6 h, sinon 100 %). Après 10 min sans mouvement, baisse à 5 % en guise d''avertissement : un geste dans la minute remet l''intensité d''avant, sinon la lumière s''éteint.'
+mode: single
+max_exceeded: silent
+triggers:
+- trigger: state
+  entity_id: binary_sensor.sdb_haut_motion_sensor_occupancy
+  to: 'on'
+  id: mouvement
+- trigger: state
+  entity_id: binary_sensor.sdb_haut_motion_sensor_occupancy
+  to: 'off'
+  for:
+    minutes: 10
+  id: absence
+  note: Délai long pour couvrir quelqu'un d'immobile ; l'avertissement donne une seconde chance.
+actions:
+- choose:
+  - conditions:
+    - condition: trigger
+      id: mouvement
+    - condition: state
+      entity_id: light.sdb_haut_dimmer
+      state: 'off'
+      note: 'Lumière déjà allumée (même réglée à la main) : on ne touche à rien.'
+    sequence:
+    - if:
+      - condition: time
+        after: '22:00:00'
+        before: 06:00:00
+      then:
+      - action: light.turn_on
+        target:
+          entity_id: light.sdb_haut_dimmer
+        data:
+          brightness_pct: 10
+      else:
+      - action: light.turn_on
+        target:
+          entity_id: light.sdb_haut_dimmer
+        data:
+          brightness_pct: 100
+      note: 'Nuit (22 h à 6 h) : 10 % pour ne pas éblouir.'
+  - conditions:
+    - condition: trigger
+      id: absence
+    - condition: state
+      entity_id: light.sdb_haut_dimmer
+      state: 'on'
+    sequence:
+    - variables:
+        luminosite: '{{ state_attr(''light.sdb_haut_dimmer'', ''brightness'') | int(255) }}'
+    - action: light.turn_on
+      target:
+        entity_id: light.sdb_haut_dimmer
+      data:
+        brightness_pct: 5
+        transition: 2
+      note: 'Avertissement : la lumière baisse, un geste suffit pour la garder.'
+    - wait_for_trigger:
+      - trigger: state
+        entity_id: binary_sensor.sdb_haut_motion_sensor_occupancy
+        to: 'on'
+      timeout:
+        seconds: 60
+      note: 'Mode single voulu : cette attente capte le geste (en mode restart, le geste couperait la restauration).'
+    - if:
+      - condition: state
+        entity_id: binary_sensor.sdb_haut_motion_sensor_occupancy
+        state: 'on'
+      then:
+      - action: light.turn_on
+        target:
+          entity_id: light.sdb_haut_dimmer
+        data:
+          brightness: '{{ luminosite }}'
+          transition: 1
+      else:
+      - action: light.turn_off
+        target:
+          entity_id: light.sdb_haut_dimmer
+        data:
+          transition: 2
+      note: 'Mouvement pendant l''avertissement : on rallume comme avant ; sinon on éteint.'

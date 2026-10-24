@@ -1,0 +1,17 @@
+# sensor.puissance_appareils_hilo — helper créé via l'interface (Paramètres → Appareils et services → Entrées)
+# Champs du formulaire de création :
+name: Puissance appareils Hilo
+type: sum
+round_digits: 0
+entity_ids:
+- sensor.thermostat_salon_power
+- sensor.thermostat_salle_a_manger_power
+- sensor.thermostat_chambre_des_maitres_power
+- sensor.thermostat_saff_power
+- sensor.thermostat_meriem_power
+- sensor.thermostat_sdb_haut_power
+- sensor.thermostat_salle_familiale_power
+- sensor.thermostat_gars_power
+- sensor.thermostat_filles_power
+- sensor.thermostat_sdb_bas_power
+- sensor.water_heater_power

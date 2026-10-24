@@ -1,0 +1,6 @@
+# binary_sensor.club_africain_en_direct — helper créé via l'interface (Paramètres → Appareils et services → Entrées)
+# Champs du formulaire de création :
+template_type: binary_sensor
+name: Club Africain en direct
+device_class: running
+state: '{% set p = states(''sensor.club_africain_a_venir_1'').split(''|'') %}{% if p | length > 6 %}{% set t = as_datetime(p[0] ~ '':00+00:00'') %}{{ p[6] in [''1H'',''HT'',''2H'',''ET'',''BT'',''P'',''LIVE'',''INT''] or (t is not none and now() > t - timedelta(minutes=10) and now() < t + timedelta(minutes=150)) }}{% else %}false{% endif %}'

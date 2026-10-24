@@ -1,0 +1,23 @@
+name: Release
+# Pousser un tag vX.Y.Z crée une release GitHub → HACS propose la mise à jour dans Home Assistant.
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Vérifier la syntaxe des cartes
+        run: for f in www/maison-cards/*.js dist/*.js; do node --check "$f"; done
+      - name: Vérifier que dist/ est à jour et que la version correspond au tag
+        run: |
+          python3 tools/build.py --check
+          test "v$(cat VERSION)" = "${GITHUB_REF_NAME}" || { echo "VERSION ($(cat VERSION)) ≠ tag ${GITHUB_REF_NAME}"; exit 1; }
+      - name: Créer la release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --generate-notes

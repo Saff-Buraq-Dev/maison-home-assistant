@@ -1,0 +1,18 @@
+{#- Modèle commun aux 6 capteurs Scrape du Club Africain.
+    `value` = texte de la balise <script> ; remplacer `l[0]` par l'index voulu,
+    et `ns.up | sort` par `ns.past | sort(reverse=true)` pour les résultats. -#}
+{% set u = value | replace('\\"', '"') %}
+{% set live = ['1H','HT','2H','ET','BT','P','LIVE','INT','SUSP'] %}
+{% set ns = namespace(ids=[], up=[], past=[]) %}
+{% for r in u | regex_findall('\\{"id":"([0-9a-f-]{36})","opponent":"([^"]*)","opponent_crest":(?:"([^"]*)"|null),"starts_at":"([^"]*)","competition":(?:"([^"]*)"|null),"venue":(?:"[^"]*"|null),"sport_category":(?:"([^"]*)"|null),"custom_title":(?:"[^"]*"|null),"gender":(?:"([^"]*)"|null),"age_group":(?:"([^"]*)"|null),.*?"is_home":(true|false),.*?"ca_score":(null|\\d+),"opp_score":(null|\\d+),"live_status":(?:"([^"]*)"|null),"live_elapsed":(null|\\d+)') %}
+{% if r[0] not in ns.ids and r[5] == 'Football' and r[6] not in ['female','feminin','women'] and r[7] in ['', 'Senior'] %}
+{% set ns.ids = ns.ids + [r[0]] %}
+{% set line = [r[3][:16], r[1], r[4], '1' if r[8] == 'true' else '0', r[9] | replace('null',''), r[10] | replace('null',''), r[11], r[12] | replace('null',''), r[2]] | join('|') %}
+{% if r[11] in live or (r[9] == 'null' and as_datetime(r[3]) > now() - timedelta(hours=4)) %}
+{% set ns.up = ns.up + [line] %}
+{% elif r[9] != 'null' %}
+{% set ns.past = ns.past + [line] %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% set l = (ns.up | sort) %}{{ l[0] if l | length > 0 else 'aucun' }}

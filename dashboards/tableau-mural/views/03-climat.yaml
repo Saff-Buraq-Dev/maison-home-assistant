@@ -1,0 +1,303 @@
+# Vue « Climat » — extrait lisible, généré depuis dashboard.json (ne pas éditer)
+icon: mdi:thermometer
+max_columns: 4
+path: climat
+sections:
+- cards:
+  - color: fire
+    compute: heating
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:fire
+    name: En chauffe
+    type: custom:maison-stat-card
+  - color: ocean
+    entity: sensor.laval_temperature
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:thermometer
+    name: Extérieur
+    secondary_entity: sensor.laval_humidite
+    secondary_prefix: 'Humidité '
+    type: custom:maison-stat-card
+  - color: violet
+    decimals: 0
+    entity: sensor.sous_sol_humidity_humidity
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:water-percent
+    name: Humidité sous-sol
+    secondary_entity: sensor.sous_sol_humidity_temperature
+    secondary_prefix: 'Salle familiale '
+    type: custom:maison-stat-card
+  - color: mint
+    entity: sensor.hilo_gateway
+    grid_options:
+      columns: 12
+      rows: 2
+    icon: mdi:router-network
+    name: Passerelle Hilo
+    secondary_entity: sensor.defi_hilo
+    secondary_prefix: 'Défi : '
+    secondary_unit: ''
+    states:
+      'off': Hors ligne
+      'on': En ligne
+    type: custom:maison-stat-card
+    unit: ''
+  column_span: 4
+  type: grid
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Thermostats
+    heading_style: title
+    icon: mdi:thermostat
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: heading
+    heading: Rez-de-chaussée
+    heading_style: subtitle
+    icon: mdi:home-floor-0
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }'
+  - type: tile
+    entity: climate.thermostat_salon
+    name: Salon
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_salle_a_manger
+    name: Salle à manger
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_chambre_des_maitres
+    name: Chambre principale
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_saff
+    name: Bureau Safouene
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_meriem
+    name: Bureau Meriem
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_sdb_haut
+    name: Salle de bain haut
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: heading
+    heading: Sous-sol
+    heading_style: subtitle
+    icon: mdi:home-floor-negative-1
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 600 !important; letter-spacing: -.01em; }'
+  - type: tile
+    entity: climate.thermostat_salle_familiale
+    name: Salle familiale
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_gars
+    name: Chambre Garçons
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_filles
+    name: Chambre Filles
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+  - type: tile
+    entity: climate.thermostat_sdb_bas
+    name: Salle de bain bas
+    vertical: false
+    grid_options:
+      columns: 6
+    features:
+    - type: target-temperature
+    state_content:
+    - current_temperature
+    - hvac_action
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } .primary, .name { font-weight: 600 !important; font-size: 14px !important; } .secondary, .state { font-size: 12px !important; opacity: .7; font-variant-numeric: tabular-nums; }'
+- type: grid
+  column_span: 2
+  cards:
+  - type: heading
+    heading: Tendances · 24 h
+    heading_style: title
+    icon: mdi:chart-line
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; color:#eef1ff; } .title p, .title { font-weight: 700 !important; letter-spacing: -.01em; }'
+  - type: custom:apexcharts-card
+    graph_span: 24h
+    header:
+      show: true
+      title: Températures des pièces
+      show_states: false
+    apex_config:
+      chart:
+        background: transparent
+        foreColor: '#c7cdf5'
+        height: 600
+        fontFamily: '''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif'
+      theme:
+        mode: dark
+      grid:
+        borderColor: rgba(255,255,255,.07)
+      legend:
+        show: true
+        position: bottom
+      tooltip:
+        theme: dark
+      stroke:
+        curve: smooth
+    series:
+    - entity: sensor.thermostat_salon_temperature
+      name: Salon
+      color: '#6d7cff'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_salle_a_manger_temperature
+      name: Salle à manger
+      color: '#a66bff'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_chambre_des_maitres_temperature
+      name: Chambre principale
+      color: '#ec4899'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_saff_temperature
+      name: Bureau Safouene
+      color: '#f59e0b'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_meriem_temperature
+      name: Bureau Meriem
+      color: '#22c55e'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_sdb_haut_temperature
+      name: Salle de bain haut
+      color: '#06b6d4'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_salle_familiale_temperature
+      name: Salle familiale
+      color: '#3b82f6'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_gars_temperature
+      name: Chambre Garçons
+      color: '#f97316'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_filles_temperature
+      name: Chambre Filles
+      color: '#14b8a6'
+      stroke_width: 2
+      show:
+        in_header: false
+    - entity: sensor.thermostat_sdb_bas_temperature
+      name: Salle de bain bas
+      color: '#eab308'
+      stroke_width: 2
+      show:
+        in_header: false
+    card_mod:
+      style: 'ha-card { --ha-font-family-body:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --ha-font-family-heading:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --mdc-typography-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --paper-font-common-base_-_font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; --primary-font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif; font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; background: radial-gradient(120% 120% at 100% 0%, rgba(109,124,255,.18), transparent 60%), linear-gradient(160deg,#171c3a,#0e1128) !important; border-radius: 24px !important; border: 1px solid rgba(255,255,255,.08) !important; box-shadow: 0 20px 40px -24px rgba(0,0,0,.7) !important; color: #eef1ff; } #header__title, #header__title span { font-family:''Inter'',''SF Pro Display'',''Segoe UI'',Roboto,sans-serif !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .1em !important; text-transform: uppercase; opacity: .6; color: #eef1ff !important; }'
+    grid_options:
+      columns: full
+theme: Frosted Glass Dark
+title: Climat
+type: sections

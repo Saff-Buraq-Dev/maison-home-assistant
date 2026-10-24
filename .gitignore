@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+*.png
+tools/dev/foot/fx.json
+tools/dev/foot/ca.json
+# ne jamais committer de secrets
+secrets.yaml
+*.token
+.env
