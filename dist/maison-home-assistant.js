@@ -1,4 +1,4 @@
-/* maison-home-assistant v1.2.0 — fichier généré par tools/build.py, ne pas éditer.
+/* maison-home-assistant v1.2.1 — fichier généré par tools/build.py, ne pas éditer.
    Sources : www/maison-cards/ — https://github.com/Saff-Buraq-Dev/maison-home-assistant */
 
 /* ===== maison-cards.js ===== */
@@ -94,13 +94,13 @@ const MC_DEFAULT_FLOORS = [
   },
 ];
 
-const MC_ASSET_VERSION = "1.2.0";
+const MC_ASSET_VERSION = "1.2.1";
 const MC_ASSET_BASES = [
   "/local/community/maison-home-assistant/",
   "/hacsfiles/maison-home-assistant/",
   `https://cdn.jsdelivr.net/gh/Saff-Buraq-Dev/maison-home-assistant@v${MC_ASSET_VERSION}/dist/`,
 ];
-const MC_CUT = 135;               // hauteur de coupe des murs (cm), vue « maison de poupée »
+const MC_CUT = 260;               // murs pleine hauteur (2,50 m) : le plan de coupe ne retire rien
 const MC_GAP = 170;               // écart entre les étages dans la vue « Toute la maison » (cm)
 
 /** Essaie chaque emplacement possible et rend le premier qui répond. */
@@ -414,7 +414,7 @@ class MaisonHouse3DCard extends HTMLElement {
     // distance : la maison entière tient dans le cadre, vue plongeante de face
     const vfov = T.MathUtils.degToRad(this._camera.fov);
     const aspect = W / Hh;
-    const tilt = 0.62;                   // angle depuis la verticale
+    const tilt = 0.5;                    // angle depuis la verticale
     const hNeeded = size.z * Math.cos(tilt) + 200 * Math.sin(tilt);
     const dist = 1.03 * Math.max(hNeeded / (2 * Math.tan(vfov / 2)), size.x / (2 * Math.tan(vfov / 2) * aspect)) + size.z * .35 * Math.sin(tilt);
     this._camera.position.set(center.x, center.y + dist * Math.cos(tilt), center.z + dist * Math.sin(tilt));
@@ -1940,4 +1940,4 @@ console.info("%c MAISON-CARDS %c v1.6 ", "background:#6d7cff;color:#fff;border-r
 })();
 }
 
-console.info("%c MAISON-HOME-ASSISTANT %c v1.2.0 ", "background:#6d7cff;color:#fff;border-radius:4px 0 0 4px;padding:2px 6px", "background:#1b1f45;color:#fff;border-radius:0 4px 4px 0;padding:2px 6px");
+console.info("%c MAISON-HOME-ASSISTANT %c v1.2.1 ", "background:#6d7cff;color:#fff;border-radius:4px 0 0 4px;padding:2px 6px", "background:#1b1f45;color:#fff;border-radius:0 4px 4px 0;padding:2px 6px");
