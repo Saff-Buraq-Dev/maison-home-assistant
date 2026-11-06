@@ -1,5 +1,5 @@
 /* Maison Cards v1.6 — cartes custom pour le tableau mural
-   - custom:maison-3d-card   : maison isométrique 3D interactive
+   - custom:maison-3d-card   : maison 3D interactive (three.js) issue des plans Sweet Home 3D
    - custom:maison-hero-card : en-tête horloge / météo / statut
    - custom:maison-stat-card : tuile KPI en verre                       */
 
@@ -35,45 +35,89 @@ function mcTempColor(t) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Disposition par défaut de la maison (unités de grille)             */
+/*  Plan réel de la maison — généré depuis les fichiers Sweet Home 3D  */
+/*  Coordonnées en cm, identiques à celles des plans .sh3d.            */
 /* ------------------------------------------------------------------ */
 const MC_DEFAULT_FLOORS = [
   {
-    id: "rdc", name: "Rez-de-chaussée", w: 12, d: 9,
+    id: "rdc", name: "Rez-de-chaussée", model: "maison-rdc.glb",
     rooms: [
-      { name: "Salon", x: 0, y: 0, w: 5, d: 4, climate: "climate.thermostat_salon", icon: "mdi:sofa" },
-      { name: "Salle à manger", x: 5, y: 0, w: 3.5, d: 4, climate: "climate.thermostat_salle_a_manger", icon: "mdi:silverware-fork-knife" },
-      { name: "Cuisine", x: 8.5, y: 0, w: 3.5, d: 4, icon: "mdi:stove" },
-      { name: "Entrée", x: 0, y: 4, w: 3, d: 2, icon: "mdi:door",
+      { name: "Salon", label: [470, 215], pts: [[305,3],[634,3],[634,260],[640,260],[640,400],[384,400],[384,394],[305,394]],
+        climate: "climate.thermostat_salon", icon: "mdi:sofa" },
+      { name: "Entrée", label: [735, 130], pts: [[646,3],[824,3],[824,260],[646,260]], icon: "mdi:door",
         devices: [{ entity: "lock.serrure", kind: "lock" }] },
-      { name: "Bureau Safouene", x: 0, y: 6, w: 3, d: 3, climate: "climate.thermostat_saff", icon: "mdi:desk",
+      { name: "Corridor", label: [1060, 352], pts: [[640,260],[824,260],[824,310],[1291,310],[1291,394],[849,394],[849,400],[640,400]] },
+      { name: "Bureau Saff", label: [975, 170], pts: [[836,3],[1113,3],[1113,298],[836,298]],
+        climate: "climate.thermostat_saff", icon: "mdi:desk",
         devices: [{ entity: "switch.bureau_saff_plug", kind: "switch", icon: "mdi:power-socket-us" }] },
-      { name: "Bureau Meriem", x: 3, y: 4, w: 3, d: 5, climate: "climate.thermostat_meriem", icon: "mdi:laptop" },
-      { name: "SdB haut", x: 6, y: 4, w: 2.5, d: 5, climate: "climate.thermostat_sdb_haut", icon: "mdi:shower" },
-      { name: "Chambre principale", x: 8.5, y: 4, w: 3.5, d: 5, climate: "climate.thermostat_chambre_des_maitres", icon: "mdi:bed-king",
+      { name: "Bureau Meriem", label: [1262, 170], pts: [[1125,3],[1400,3],[1400,394],[1303,394],[1303,298],[1125,298]],
+        climate: "climate.thermostat_meriem", icon: "mdi:laptop" },
+      { name: "Cuisine", label: [415, 570], pts: [[305,406],[384,406],[384,400],[524,400],[524,740],[305,740]], icon: "mdi:stove" },
+      { name: "Salle à manger", label: [683, 570], pts: [[524,400],[843,400],[843,740],[524,740]],
+        climate: "climate.thermostat_salle_a_manger", icon: "mdi:silverware-fork-knife" },
+      { name: "Salle de bain", label: [934, 570], pts: [[855,406],[1013,406],[1013,740],[855,740]],
+        climate: "climate.thermostat_sdb_haut", icon: "mdi:shower",
+        devices: [{ entity: "light.sdb_haut_dimmer", kind: "light" }] },
+      { name: "Chambre des maîtres", label: [1212, 570], pts: [[1025,404],[1400,404],[1400,738],[1025,738]],
+        climate: "climate.thermostat_chambre_des_maitres", icon: "mdi:bed-king",
         devices: [{ entity: "light.decora_smart_800_series_dimmer", kind: "light" }] },
     ],
   },
   {
-    id: "ss", name: "Sous-sol", w: 12, d: 9,
+    id: "ss", name: "Sous-sol", model: "maison-sousol.glb",
     rooms: [
-      { name: "Salle familiale", x: 0, y: 0, w: 6, d: 5, climate: "climate.thermostat_salle_familiale", icon: "mdi:sofa-outline",
-        humidity: "sensor.sous_sol_humidity_humidity",
-        devices: [{ entity: "media_player.samsung_7_series_50_un50ru7100fxzc", kind: "media", icon: "mdi:television" }] },
-      { name: "Bibliothèque", x: 6, y: 0, w: 3, d: 5, icon: "mdi:bookshelf",
+      { name: "Bibliothèque", label: [210, 170], pts: [[3,3],[411,3],[411,293],[311,293],[238,335],[3,335]], icon: "mdi:bookshelf",
         devices: [{ entity: "binary_sensor.bibliotheque_x55_etat_du_reseau_etendu_wan", kind: "status", icon: "mdi:router-wireless" }] },
-      { name: "Technique", x: 9, y: 0, w: 3, d: 2.5, icon: "mdi:water-boiler",
+      { name: "Salle familiale", label: [745, 215], pts: [[535,3],[986,3],[986,406],[246,406],[246,345],[314,305],[423,305],[423,245],[535,245]],
+        climate: "climate.thermostat_salle_familiale", icon: "mdi:sofa-outline", humidity: "sensor.sous_sol_humidity_humidity",
+        devices: [
+          { entity: "light.salle_familiale_dimmer", kind: "light" },
+          { entity: "media_player.samsung_7_series_50_un50ru7100fxzc", kind: "media", icon: "mdi:television" },
+        ] },
+      { name: "Chambre filles", label: [185, 560], pts: [[3,347],[234,347],[234,418],[364,418],[364,720],[3,720]],
+        climate: "climate.thermostat_filles", icon: "mdi:bed-outline" },
+      { name: "Salle de bain bas", label: [500, 570], pts: [[376,418],[624,418],[624,720],[376,720]],
+        climate: "climate.thermostat_sdb_bas", icon: "mdi:shower-head",
         devices: [
           { entity: "binary_sensor.salle_technique_water_leak_water_leak", kind: "leak", icon: "mdi:water-alert" },
           { entity: "switch.water_heater", kind: "status", icon: "mdi:water-boiler" },
         ] },
-      { name: "SdB bas", x: 9, y: 2.5, w: 3, d: 2.5, climate: "climate.thermostat_sdb_bas", icon: "mdi:shower-head" },
-      { name: "Chambre Garçons", x: 0, y: 5, w: 6, d: 4, climate: "climate.thermostat_gars", icon: "mdi:bed",
-        devices: [{ entity: "light.lumiere_garcons", kind: "light" }] },
-      { name: "Chambre Filles", x: 6, y: 5, w: 6, d: 4, climate: "climate.thermostat_filles", icon: "mdi:bed-outline" },
+      { name: "Chambre garçons", label: [810, 570], pts: [[636,418],[986,418],[986,720],[636,720]],
+        climate: "climate.thermostat_gars", icon: "mdi:bed",
+        devices: [{ entity: "light.chambre_garcons_bulb", kind: "light" }] },
     ],
   },
 ];
+
+const MC_ASSET_VERSION = "__MAISON_VERSION__";
+const MC_ASSET_BASES = [
+  "/local/community/maison-home-assistant/",
+  "/hacsfiles/maison-home-assistant/",
+  `https://cdn.jsdelivr.net/gh/Saff-Buraq-Dev/maison-home-assistant@v${MC_ASSET_VERSION}/dist/`,
+];
+const MC_CUT = 135;               // hauteur de coupe des murs (cm), vue « maison de poupée »
+const MC_GAP = 170;               // écart entre les étages dans la vue « Toute la maison » (cm)
+
+/** Essaie chaque emplacement possible et rend le premier qui répond. */
+async function mcAssetUrl(name, bases) {
+  for (const b of bases) {
+    const url = `${b}${name}?v=${MC_ASSET_VERSION}`;
+    try {
+      const r = await fetch(url, { method: "HEAD" });
+      if (r.ok) return url;
+    } catch (e) { /* emplacement suivant */ }
+  }
+  throw new Error("Fichier introuvable : " + name);
+}
+let mcThreePromise = null;
+function mcLoadThree(bases) {
+  if (!mcThreePromise) mcThreePromise = (async () => {
+    if (!window.MaisonThree) await import(await mcAssetUrl("maison-3d-vendor.js", bases));
+    if (!window.MaisonThree) throw new Error("three.js non chargé");
+    return window.MaisonThree;
+  })();
+  return mcThreePromise;
+}
 
 /* ------------------------------------------------------------------ */
 /*  Maison 3D                                                          */
@@ -82,6 +126,7 @@ class MaisonHouse3DCard extends HTMLElement {
   setConfig(config) {
     this._config = Object.assign({ floors: MC_DEFAULT_FLOORS, title: "Ma maison" }, config || {});
     this._view = this._config.default_view || "all";
+    this._bases = this._config.asset_base ? [this._config.asset_base, ...MC_ASSET_BASES] : MC_ASSET_BASES;
     this._sig = null;
     if (!this.shadowRoot) this.attachShadow({ mode: "open" });
     this._renderShell();
@@ -89,15 +134,19 @@ class MaisonHouse3DCard extends HTMLElement {
 
   set hass(hass) {
     this._hass = hass;
+    this._boot();
     const sig = this._signature();
     if (sig !== this._sig) {
       this._sig = sig;
-      this._renderHouse();
+      this._refresh();
     }
   }
 
   getCardSize() { return 12; }
   getGridOptions() { return { columns: "full", rows: "auto" }; }
+
+  connectedCallback() { if (this._three && !this._renderer) this._startRenderer(); }
+  disconnectedCallback() { this._stopRenderer(); }
 
   _entities() {
     const ids = [];
@@ -115,12 +164,17 @@ class MaisonHouse3DCard extends HTMLElement {
       .map((id) => { const s = this._hass.states[id]; return s ? s.state + (s.attributes.current_temperature ?? "") + (s.attributes.hvac_action ?? "") : "x"; })
       .join("|");
   }
+  _shown() {
+    const floors = this._config.floors;
+    return this._view === "all" ? floors : floors.filter((f) => f.id === this._view);
+  }
 
   _renderShell() {
     this.shadowRoot.innerHTML = `
       <style>
-        :host { display:block; }
-        ha-card { display:block; position:relative; overflow:hidden; border-radius:24px; padding:22px 24px 18px;
+        :host { display:block; height:100%; }
+        ha-card { display:flex; flex-direction:column; position:relative; overflow:hidden; border-radius:24px; padding:18px 22px 14px; box-sizing:border-box;
+          height:100%; min-height:min(calc(100dvh - 72px), 900px);
           background: radial-gradient(120% 90% at 50% 0%, rgba(76,94,180,.35), rgba(12,16,34,.0) 60%),
                       linear-gradient(160deg, #141a33 0%, #0b0f22 55%, #070a17 100%);
           color:#eef1ff; font-family:${MC_FONT}; border:1px solid rgba(255,255,255,.08);
@@ -132,26 +186,24 @@ class MaisonHouse3DCard extends HTMLElement {
         .tab { border:0; background:transparent; color:#c7cdf5; font:600 13px ${MC_FONT}; padding:9px 16px;
           border-radius:999px; cursor:pointer; transition:all .25s; }
         .tab.on { background:linear-gradient(135deg,#6d7cff,#a66bff); color:#fff; box-shadow:0 6px 18px -6px #7b6cff; }
-        .stage { position:relative; margin-top:10px; }
-        svg { width:100%; height:auto; display:block; overflow:visible; }
-        .room { cursor:pointer; transition: filter .2s; }
-        .room:hover { filter: brightness(1.25); }
-        .overlay { position:absolute; inset:0; pointer-events:none; }
-        .chip { position:absolute; transform:translate(-50%,-50%); pointer-events:auto; display:flex; flex-direction:column;
-          align-items:center; gap:4px; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; }
+        .stage { position:relative; flex:1 1 auto; min-height:360px; margin-top:8px; touch-action:none; }
+        canvas, svg { position:absolute; inset:0; width:100%; height:100%; display:block; outline:none; }
+        .overlay { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+        .chip { position:absolute; left:0; top:0; will-change:transform; pointer-events:auto; display:flex; flex-direction:column;
+          align-items:center; gap:3px; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; }
         .pill { display:flex; align-items:center; gap:6px; padding:5px 10px 5px 7px; border-radius:999px;
-          background:rgba(10,14,32,.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+          background:rgba(10,14,32,.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
           border:1px solid rgba(255,255,255,.14); font-size:12.5px; font-weight:600; white-space:nowrap;
           box-shadow:0 8px 20px -10px rgba(0,0,0,.8); }
         .pill ha-icon { --mdc-icon-size:16px; }
         .temp { font-variant-numeric: tabular-nums; }
-        .name { font-size:11px; font-weight:600; opacity:.85; text-shadow:0 1px 3px rgba(0,0,0,.9); white-space:nowrap; }
+        .name { font-size:11px; font-weight:600; white-space:nowrap; padding:1px 7px; border-radius:999px; background:rgba(10,14,32,.55); }
         .flame { color:#ff8a4c; animation: pulse 1.6s ease-in-out infinite; }
-        .devs { display:flex; gap:6px; }
-        .dev { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; pointer-events:auto;
-          background:rgba(10,14,32,.75); border:1px solid rgba(255,255,255,.16); cursor:pointer; transition: all .2s;
+        .devs { display:flex; gap:5px; }
+        .dev { width:32px; height:32px; border-radius:50%; display:grid; place-items:center; pointer-events:auto;
+          background:rgba(10,14,32,.8); border:1px solid rgba(255,255,255,.16); cursor:pointer; transition: all .2s;
           backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-        .dev ha-icon { --mdc-icon-size:18px; }
+        .dev ha-icon { --mdc-icon-size:17px; }
         .dev:active { transform: scale(.9); }
         .dev.on { background: radial-gradient(circle, #ffd76a 0%, #f59e0b 70%); color:#3a2500; border-color:#ffe39a;
           box-shadow:0 0 22px 4px rgba(255,200,80,.55); }
@@ -162,9 +214,10 @@ class MaisonHouse3DCard extends HTMLElement {
         .dev.alert { background:linear-gradient(135deg,#ef4444,#991b1b); color:#fff; animation: pulse 1s infinite; }
         .dev.ok { color:#4ade80; }
         .dev.unk { color:#94a3b8; }
-        .floorlabel { position:absolute; padding:4px 12px; border-radius:999px; background:rgba(109,124,255,.14); border:1px solid rgba(170,179,255,.25); pointer-events:none; font-size:12px; font-weight:700; letter-spacing:.14em;
-          text-transform:uppercase; color:#aab3ff; opacity:.75; transform:translate(-50%,-50%); white-space:nowrap; }
-        .legend { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-top:8px;
+        .floorlabel { position:absolute; left:0; top:0; padding:4px 12px; border-radius:999px; background:rgba(109,124,255,.14); border:1px solid rgba(170,179,255,.25);
+          pointer-events:none; font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#aab3ff; white-space:nowrap; }
+        .msg { position:absolute; inset:0; display:grid; place-items:center; font-size:14px; opacity:.7; pointer-events:none; }
+        .legend { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-top:6px;
           font-size:12px; opacity:.85; }
         .grad { display:flex; align-items:center; gap:8px; }
         .bar { width:160px; height:8px; border-radius:6px;
@@ -175,154 +228,328 @@ class MaisonHouse3DCard extends HTMLElement {
       </style>
       <ha-card>
         <div class="top">
-          <div><h2>${this._config.title}</h2><div class="sub">Touchez une pièce pour son thermostat, une pastille pour agir</div></div>
+          <div><h2>${this._config.title}</h2><div class="sub">Glissez pour tourner, touchez une pièce pour son thermostat</div></div>
           <div class="tabs">
             <button class="tab" data-v="all">Toute la maison</button>
             ${this._config.floors.map((f) => `<button class="tab" data-v="${f.id}">${f.name}</button>`).join("")}
           </div>
         </div>
-        <div class="stage"><svg id="svg"></svg><div class="overlay" id="ov"></div></div>
+        <div class="stage" id="stage"><div class="msg" id="msg">Chargement de la maison…</div><div class="overlay" id="ov"></div></div>
         <div class="legend">
           <div class="grad"><span>16°</span><div class="bar"></div><span>26°</span></div>
           <div class="stats" id="stats"></div>
         </div>
       </ha-card>`;
-    this.shadowRoot.querySelectorAll(".tab").forEach((b) =>
-      b.addEventListener("click", () => { this._view = b.dataset.v; this._sig = null; this.hass = this._hass; }));
+    this.shadowRoot.querySelectorAll(".tab").forEach((b) => {
+      b.classList.toggle("on", b.dataset.v === this._view);
+      b.addEventListener("click", () => {
+        this._view = b.dataset.v;
+        this.shadowRoot.querySelectorAll(".tab").forEach((x) => x.classList.toggle("on", x.dataset.v === this._view));
+        this._layout();
+        this._sig = null;
+        this.hass = this._hass;
+      });
+    });
+    this._stage = this.shadowRoot.getElementById("stage");
+    this._ov = this.shadowRoot.getElementById("ov");
+    this._msg = this.shadowRoot.getElementById("msg");
+    this._ro = new ResizeObserver(() => this._resize());
+    this._ro.observe(this._stage);
   }
 
-  _renderHouse() {
-    if (!this._hass || !this.shadowRoot) return;
-    const floors = this._config.floors;
-    const shown = this._view === "all" ? floors : floors.filter((f) => f.id === this._view);
-    this.shadowRoot.querySelectorAll(".tab").forEach((b) => b.classList.toggle("on", b.dataset.v === this._view));
-
-    const exploded = shown.length > 1;
-    const S = exploded ? 40 : 56;          // échelle
-    const WALL = exploded ? 1.1 : 1.3;     // hauteur des murs (unités)
-    const C = Math.cos(Math.PI / 6), Sn = 0.5;
-    // vue « toute la maison » : étages côte à côte, légèrement décalés
-    const levels = [];
-    let ox = 0;
-    shown.forEach((f, i) => {
-      levels.push({ f, z: 0, ox, oy: i * 34 });
-      ox += (f.w + f.d) * C * S + 70;
-    });
-    let cur = levels[0];
-    const iso = (x, y, z) => [cur.ox + (x - y) * C * S, cur.oy + (x + y) * Sn * S - z * S];
-
-    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-    for (const L of levels) {
-      cur = L;
-      const f = L.f;
-      for (const [x, y, zz] of [[0, 0, WALL + 1.2], [f.w, 0, 0], [0, f.d, 0], [f.w, f.d, -0.4], [0, f.d, -0.4]]) {
-        const [px, py] = iso(x, y, zz);
-        minX = Math.min(minX, px); maxX = Math.max(maxX, px); minY = Math.min(minY, py); maxY = Math.max(maxY, py);
-      }
+  /* ---------- démarrage ---------- */
+  async _boot() {
+    if (this._booted) return;
+    this._booted = true;
+    try {
+      const probe = document.createElement("canvas");
+      if (!(probe.getContext("webgl2") || probe.getContext("webgl"))) throw new Error("WebGL indisponible");
+      this._three = await mcLoadThree(this._bases);
+      this._buildScene();
+      this._startRenderer();
+      await Promise.all(this._config.floors.map((f) => this._loadFloor(f)));
+      this._msg.remove();
+      this._shadowsDirty = true;
+      this._layout();
+      this._refresh();
+    } catch (e) {
+      console.warn("maison-3d-card : repli sur le plan 2D —", e);
+      this._flat = true;
+      this._msg.remove();
+      this._stopRenderer();
+      this._refresh();
     }
-    const pad = 30;
-    const vbX = minX - pad, vbY = minY - pad, vbW = maxX - minX + pad * 2, vbH = maxY - minY + pad * 2 + 20;
-    const P = (pts) => pts.map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" ");
-    const pct = ([px, py]) => [((px - vbX) / vbW) * 100, ((py - vbY) / vbH) * 100];
+  }
 
-    let svg = `<defs>
-      <linearGradient id="slabTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b3566"/><stop offset="1" stop-color="#1a2148"/></linearGradient>
-      <linearGradient id="slabL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2250"/><stop offset="1" stop-color="#0f1433"/></linearGradient>
-      <linearGradient id="slabR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252e63"/><stop offset="1" stop-color="#141a40"/></linearGradient>
-      <linearGradient id="wallA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9d2ff" stop-opacity=".30"/><stop offset="1" stop-color="#8f9cff" stop-opacity=".08"/></linearGradient>
-      <linearGradient id="wallB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3e8ff" stop-opacity=".40"/><stop offset="1" stop-color="#aab4ff" stop-opacity=".10"/></linearGradient>
-      <radialGradient id="lightGlow"><stop offset="0" stop-color="#ffe08a" stop-opacity=".9"/><stop offset=".55" stop-color="#ffc24d" stop-opacity=".35"/><stop offset="1" stop-color="#ffb020" stop-opacity="0"/></radialGradient>
-      <radialGradient id="heatGlow"><stop offset="0" stop-color="#ff7a3d" stop-opacity=".55"/><stop offset="1" stop-color="#ff4d1a" stop-opacity="0"/></radialGradient>
-      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
-      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>
-    </defs>`;
+  _buildScene() {
+    const { THREE: T } = this._three;
+    this._scene = new T.Scene();
+    this._camera = new T.PerspectiveCamera(26, 1, 50, 12000);
+    this._scene.add(new T.HemisphereLight(0xffffff, 0x4a5078, 1.5));
+    const sun = new T.DirectionalLight(0xfff4e6, 2.1);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048);
+    sun.shadow.bias = -0.0006;
+    sun.shadow.normalBias = 1.5;
+    this._sun = sun;
+    this._scene.add(sun, sun.target);
+    this._clip = [new T.Plane(new T.Vector3(0, -1, 0), MC_CUT)];
+    this._groups = {};
+    this._rooms = [];
+  }
 
-    let overlay = "";
-    let tempSum = 0, tempN = 0, heating = 0, lightsOn = 0;
+  _startRenderer() {
+    const { THREE: T, OrbitControls } = this._three;
+    const r = new T.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+    r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+    r.shadowMap.enabled = true;
+    r.shadowMap.type = T.PCFShadowMap;
+    r.shadowMap.autoUpdate = false;
+    r.localClippingEnabled = true;
+    r.toneMapping = T.ACESFilmicToneMapping;
+    r.toneMappingExposure = 1.28;
+    this._renderer = r;
+    this._stage.insertBefore(r.domElement, this._ov);
+    const c = new OrbitControls(this._camera, r.domElement);
+    c.enablePan = false;
+    c.minPolarAngle = 0.12;
+    c.maxPolarAngle = 1.2;
+    c.addEventListener("change", () => this._invalidate());
+    this._controls = c;
+    this._shadowsDirty = true;
+    let down = null;
+    r.domElement.addEventListener("pointerdown", (e) => { down = [e.clientX, e.clientY]; });
+    r.domElement.addEventListener("pointerup", (e) => {
+      if (down && Math.hypot(e.clientX - down[0], e.clientY - down[1]) < 8) this._tap(e);
+      down = null;
+    });
+    this._resize();
+    this._layout();
+  }
+  _stopRenderer() {
+    cancelAnimationFrame(this._raf);
+    this._raf = 0;
+    if (this._controls) this._controls.dispose();
+    if (this._renderer) {
+      this._renderer.domElement.remove();
+      this._renderer.dispose();
+      this._renderer.forceContextLoss();
+    }
+    this._renderer = this._controls = null;
+  }
 
-    for (const L of levels) {
-      cur = L;
-      const { f, z } = L;
-      // ombre portée + dalle
-      const sh = [iso(0, 0, z - 0.9), iso(f.w, 0, z - 0.9), iso(f.w, f.d, z - 0.9), iso(0, f.d, z - 0.9)].map(([a, b]) => [a + 10, b + 26]);
-      svg += `<polygon points="${P(sh)}" fill="#000" opacity=".45" filter="url(#shadow)"/>`;
-      const t = 0.35;
-      svg += `<polygon points="${P([iso(0, f.d, z), iso(f.w, f.d, z), iso(f.w, f.d, z - t), iso(0, f.d, z - t)])}" fill="url(#slabL)"/>`;
-      svg += `<polygon points="${P([iso(f.w, 0, z), iso(f.w, f.d, z), iso(f.w, f.d, z - t), iso(f.w, 0, z - t)])}" fill="url(#slabR)"/>`;
-      svg += `<polygon points="${P([iso(0, 0, z), iso(f.w, 0, z), iso(f.w, f.d, z), iso(0, f.d, z)])}" fill="url(#slabTop)"/>`;
+  async _loadFloor(f) {
+    const { THREE: T, GLTFLoader, MeshoptDecoder } = this._three;
+    const loader = new GLTFLoader();
+    loader.setMeshoptDecoder(MeshoptDecoder);
+    const gltf = await loader.loadAsync(await mcAssetUrl(f.model, this._bases));
+    const g = new T.Group();
+    g.add(gltf.scene);
+    gltf.scene.traverse((o) => {
+      if (!o.isMesh) return;
+      let part = o;
+      while (part && !["open", "walls", "floors", "furn"].includes(part.name)) part = part.parent;
+      const kind = part ? part.name : "furn";
+      if (o.material.map) o.material.map.anisotropy = 4;
+      o.material = o.material.clone();
+      o.material.side = T.DoubleSide;
+      if (kind === "open") o.material.clippingPlanes = this._clip;
+      o.castShadow = kind !== "floors";
+      o.receiveShadow = true;
+    });
+    const box = new T.Box3().setFromObject(gltf.scene);
+    // dalle sous l'étage : donne du volume et prolonge le style de la carte
+    const slab = new T.Mesh(new T.BoxGeometry(box.max.x - box.min.x, 26, box.max.z - box.min.z),
+      new T.MeshStandardMaterial({ color: 0x1a2148, roughness: .9 }));
+    slab.position.set((box.min.x + box.max.x) / 2, -13.5, (box.min.z + box.max.z) / 2);
+    g.add(slab);
+    for (const r of f.rooms) {
+      const shape = new T.Shape(r.pts.map(([x, y]) => new T.Vector2(x, -y)));
+      const geo = new T.ShapeGeometry(shape);
+      geo.rotateX(-Math.PI / 2);
+      const tint = new T.Mesh(geo, new T.MeshBasicMaterial({ transparent: true, opacity: .2, depthWrite: false, depthTest: true, side: T.DoubleSide }));
+      tint.position.y = 3;
+      tint.renderOrder = 2;
+      const glow = new T.Mesh(geo, new T.MeshBasicMaterial({ color: 0xffb648, transparent: true, opacity: .2, blending: T.AdditiveBlending, depthWrite: false, side: T.DoubleSide }));
+      glow.position.y = 3.5;
+      glow.renderOrder = 3;
+      glow.visible = false;
+      g.add(tint, glow);
+      this._rooms.push({ floor: f, room: r, tint, glow });
+    }
+    this._scene.add(g);
+    this._groups[f.id] = { group: g, box };
+  }
 
-      const rooms = [...f.rooms].sort((a, b) => (a.x + a.y) - (b.x + b.y));
-      // sols des pièces
-      for (const r of rooms) {
+  /* ---------- disposition et caméra ---------- */
+  _layout() {
+    if (!this._scene || !this._renderer) return;
+    const { THREE: T } = this._three;
+    const ready = this._config.floors.filter((f) => this._groups[f.id]);
+    if (!ready.length) return;
+    const W = this._stage.clientWidth || 1, Hh = this._stage.clientHeight || 1;
+    const stacked = W / Hh < 1.05;       // tablette en portrait : étages l'un sous l'autre
+    let off = 0;
+    const world = new T.Box3();
+    for (const f of ready) {
+      const G = this._groups[f.id];
+      const on = this._view === "all" || this._view === f.id;
+      G.group.visible = on;
+      if (!on) continue;
+      const b = G.box;
+      if (stacked) G.group.position.set(-b.min.x, 0, off - b.min.z);
+      else G.group.position.set(off - b.min.x, 0, -b.min.z);
+      off += (stacked ? b.max.z - b.min.z : b.max.x - b.min.x) + MC_GAP;
+      world.union(b.clone().translate(G.group.position));
+    }
+    const center = world.getCenter(new T.Vector3());
+    const size = world.getSize(new T.Vector3());
+    center.y = 40;
+    this._controls.target.copy(center);
+    // distance : la maison entière tient dans le cadre, vue plongeante de face
+    const vfov = T.MathUtils.degToRad(this._camera.fov);
+    const aspect = W / Hh;
+    const tilt = 0.62;                   // angle depuis la verticale
+    const hNeeded = size.z * Math.cos(tilt) + 200 * Math.sin(tilt);
+    const dist = 1.03 * Math.max(hNeeded / (2 * Math.tan(vfov / 2)), size.x / (2 * Math.tan(vfov / 2) * aspect)) + size.z * .35 * Math.sin(tilt);
+    this._camera.position.set(center.x, center.y + dist * Math.cos(tilt), center.z + dist * Math.sin(tilt));
+    this._controls.minDistance = dist * .35;
+    this._controls.maxDistance = dist * 1.6;
+    this._controls.update();
+    // ombres ajustées à ce qui est affiché
+    const s = this._sun, R = Math.max(size.x, size.z) * .75;
+    s.position.set(center.x - R * .45, 900, center.z - R * .3 + 300);
+    s.target.position.copy(center);
+    Object.assign(s.shadow.camera, { left: -R, right: R, top: R, bottom: -R, near: 50, far: 2600 });
+    s.shadow.camera.updateProjectionMatrix();
+    this._shadowsDirty = true;
+    this._invalidate();
+  }
+  _resize() {
+    if (!this._renderer) { if (this._flat) this._refresh(); return; }
+    const w = this._stage.clientWidth, h = this._stage.clientHeight;
+    if (!w || !h) return;
+    this._renderer.setSize(w, h);
+    this._camera.aspect = w / h;
+    this._camera.updateProjectionMatrix();
+    this._layout();
+  }
+  _invalidate() {
+    if (this._raf || !this._renderer) return;
+    this._raf = requestAnimationFrame(() => {
+      this._raf = 0;
+      if (!this._renderer) return;
+      if (this._shadowsDirty) { this._renderer.shadowMap.needsUpdate = true; this._shadowsDirty = false; }
+      this._renderer.render(this._scene, this._camera);
+      this._placeChips();
+    });
+  }
+  _tap(e) {
+    const { THREE: T } = this._three;
+    const rc = this._renderer.domElement.getBoundingClientRect();
+    const p = new T.Vector2(((e.clientX - rc.left) / rc.width) * 2 - 1, -((e.clientY - rc.top) / rc.height) * 2 + 1);
+    const ray = new T.Raycaster();
+    ray.setFromCamera(p, this._camera);
+    const list = this._rooms.filter((r) => r.tint.parent.visible);
+    const hit = ray.intersectObjects(list.map((r) => r.tint), false)[0];
+    if (!hit) return;
+    const r = list.find((x) => x.tint === hit.object).room;
+    const target = r.climate || (r.devices && r.devices[0] && r.devices[0].entity);
+    if (target) mcMoreInfo(this, target);
+  }
+
+  /* ---------- données ---------- */
+  _refresh() {
+    if (!this._hass || !this.shadowRoot) return;
+    if (this._flat) this._drawFlat();
+    let tempSum = 0, tempN = 0, heating = 0, lightsOn = 0, html = "";
+    for (const f of this._config.floors) {
+      for (const r of f.rooms) {
         const cs = r.climate && this._hass.states[r.climate];
-        const tcur = cs ? parseFloat(cs.attributes.current_temperature) : NaN;
-        if (!isNaN(tcur)) { tempSum += tcur; tempN++; }
-        const isHeat = cs && cs.attributes.hvac_action === "heating";
-        if (isHeat) heating++;
-        const col = mcTempColor(tcur);
-        const inset = 0.06;
-        const fl = [iso(r.x + inset, r.y + inset, z), iso(r.x + r.w - inset, r.y + inset, z), iso(r.x + r.w - inset, r.y + r.d - inset, z), iso(r.x + inset, r.y + r.d - inset, z)];
-        const target = r.climate || (r.devices && r.devices[0] && r.devices[0].entity) || "";
-        svg += `<g class="room" data-e="${target}">
-          <polygon points="${P(fl)}" fill="${col}" fill-opacity="${isNaN(tcur) ? 0.16 : 0.34}" stroke="${col}" stroke-opacity=".9" stroke-width="1.6"/>`;
-        const [cx, cy] = iso(r.x + r.w / 2, r.y + r.d / 2, z);
-        if (isHeat) svg += `<ellipse cx="${cx}" cy="${cy}" rx="${r.w * S * 0.55}" ry="${r.d * S * 0.32}" fill="url(#heatGlow)"/>`;
-        for (const d of r.devices || [])
-          if (d.kind === "light" && mcState(this._hass, d.entity) === "on") {
-            lightsOn++;
-            svg += `<ellipse cx="${cx}" cy="${cy}" rx="${Math.max(r.w, r.d) * S * 0.75}" ry="${Math.max(r.w, r.d) * S * 0.42}" fill="url(#lightGlow)" filter="url(#soft)"/>`;
-          }
-        svg += `</g>`;
-      }
-      // murs arrière (nord / ouest) de chaque pièce
-      for (const r of rooms) {
-        const H = WALL;
-        const north = [iso(r.x, r.y, z), iso(r.x + r.w, r.y, z), iso(r.x + r.w, r.y, z + H), iso(r.x, r.y, z + H)];
-        const west = [iso(r.x, r.y, z), iso(r.x, r.y + r.d, z), iso(r.x, r.y + r.d, z + H), iso(r.x, r.y, z + H)];
-        svg += `<polygon points="${P(west)}" fill="url(#wallA)" stroke="#c7d0ff" stroke-opacity=".35" stroke-width="1"/>`;
-        svg += `<polygon points="${P(north)}" fill="url(#wallB)" stroke="#d9e0ff" stroke-opacity=".40" stroke-width="1"/>`;
-      }
-      // murs extérieurs avant (bas) pour donner le volume
-      const lo = 0.32;
-      svg += `<polygon points="${P([iso(0, f.d, z), iso(f.w, f.d, z), iso(f.w, f.d, z + lo), iso(0, f.d, z + lo)])}" fill="#aab6ff" fill-opacity=".22" stroke="#cfd6ff" stroke-opacity=".5"/>`;
-      svg += `<polygon points="${P([iso(f.w, 0, z), iso(f.w, f.d, z), iso(f.w, f.d, z + lo), iso(f.w, 0, z + lo)])}" fill="#c3ccff" fill-opacity=".28" stroke="#cfd6ff" stroke-opacity=".5"/>`;
-
-      // étiquette d'étage
-      const [lx, ly] = pct(iso(0, 0, WALL + 1.0));
-      overlay += `<div class="floorlabel" style="left:${lx}%;top:${ly}%">${f.name}</div>`;
-
-      // pastilles
-      for (const r of rooms) {
-        const [px, py] = pct(iso(r.x + r.w / 2, r.y + r.d / 2, z + 0.15));
-        const cs = r.climate && this._hass.states[r.climate];
-        const tcur = cs ? parseFloat(cs.attributes.current_temperature) : NaN;
-        const isHeat = cs && cs.attributes.hvac_action === "heating";
+        const t = cs ? parseFloat(cs.attributes.current_temperature) : NaN;
+        const heat = !!cs && cs.attributes.hvac_action === "heating";
+        const lit = (r.devices || []).some((d) => d.kind === "light" && mcState(this._hass, d.entity) === "on");
+        if (!isNaN(t)) { tempSum += t; tempN++; }
+        if (heat) heating++;
+        lightsOn += (r.devices || []).filter((d) => d.kind === "light" && mcState(this._hass, d.entity) === "on").length;
+        const m = this._rooms && this._rooms.find((x) => x.room === r);
+        if (m) {
+          m.tint.material.color.set(isNaN(t) ? "#6b7280" : mcTempColor(t));
+          m.tint.material.opacity = isNaN(t) ? 0 : heat ? .34 : .2;
+          m.glow.visible = lit;
+        }
+        if (!this._shown().includes(f)) continue;
         const hum = r.humidity ? mcNum(this._hass, r.humidity) : NaN;
-        let pill = "";
-        if (cs) pill = `<div class="pill" data-e="${r.climate}">
-            <ha-icon icon="${isHeat ? "mdi:fire" : r.icon || "mdi:thermometer"}" class="${isHeat ? "flame" : ""}" style="color:${isHeat ? "" : mcTempColor(tcur)}"></ha-icon>
-            <span class="temp">${isNaN(tcur) ? "–" : tcur.toFixed(1) + "°"}</span>${!isNaN(hum) ? `<span style="opacity:.6;font-weight:500">· ${Math.round(hum)}%</span>` : ""}</div>`;
+        const pill = cs ? `<div class="pill" data-e="${r.climate}">
+            <ha-icon icon="${heat ? "mdi:fire" : r.icon || "mdi:thermometer"}" class="${heat ? "flame" : ""}" style="color:${heat ? "" : mcTempColor(t)}"></ha-icon>
+            <span class="temp">${isNaN(t) ? "–" : t.toFixed(1) + "°"}</span>${!isNaN(hum) ? `<span style="opacity:.6;font-weight:500">· ${Math.round(hum)}%</span>` : ""}</div>` : "";
         const devs = (r.devices || []).map((d) => this._devHtml(d)).join("");
-        overlay += `<div class="chip" style="left:${px}%;top:${py}%">
+        html += `<div class="chip" data-f="${f.id}" data-x="${r.label[0]}" data-y="${r.label[1]}">
           ${pill}<div class="name">${r.name}</div>${devs ? `<div class="devs">${devs}</div>` : ""}</div>`;
       }
+      if (this._shown().includes(f) && this._shown().length > 1) html += `<div class="floorlabel chip" data-f="${f.id}" data-x="${f.id === "rdc" ? 850 : 490}" data-y="-150">${f.name}</div>`;
     }
-
-    const svgEl = this.shadowRoot.getElementById("svg");
-    svgEl.setAttribute("viewBox", `${vbX} ${vbY} ${vbW} ${vbH}`);
-    svgEl.innerHTML = svg;
-    const ov = this.shadowRoot.getElementById("ov");
-    ov.innerHTML = overlay;
-
-    const avg = tempN ? (tempSum / tempN).toFixed(1) + "°" : "–";
+    this._ov.innerHTML = html;
     this.shadowRoot.getElementById("stats").innerHTML =
-      `<span><b>${avg}</b>moyenne</span><span><b>${heating}</b>en chauffe</span><span><b>${lightsOn}</b>lumière${lightsOn > 1 ? "s" : ""} allumée${lightsOn > 1 ? "s" : ""}</span>`;
-
-    svgEl.querySelectorAll(".room").forEach((g) => g.addEventListener("click", () => g.dataset.e && mcMoreInfo(this, g.dataset.e)));
-    ov.querySelectorAll(".pill").forEach((p) => p.addEventListener("click", (ev) => { ev.stopPropagation(); mcMoreInfo(this, p.dataset.e); }));
-    ov.querySelectorAll(".dev").forEach((d) => {
+      `<span><b>${tempN ? (tempSum / tempN).toFixed(1) + "°" : "–"}</b>moyenne</span><span><b>${heating}</b>en chauffe</span><span><b>${lightsOn}</b>lumière${lightsOn > 1 ? "s" : ""} allumée${lightsOn > 1 ? "s" : ""}</span>`;
+    this._ov.querySelectorAll(".pill").forEach((p) => p.addEventListener("click", (ev) => { ev.stopPropagation(); mcMoreInfo(this, p.dataset.e); }));
+    this._ov.querySelectorAll(".dev").forEach((d) => {
       d.addEventListener("click", (ev) => { ev.stopPropagation(); this._act(d.dataset.e, d.dataset.k); });
       d.addEventListener("contextmenu", (ev) => { ev.preventDefault(); mcMoreInfo(this, d.dataset.e); });
+    });
+    if (this._flat) this._placeFlat(); else this._invalidate();
+  }
+
+  _placeChips() {
+    if (!this._three || !this._ov) return;
+    const { THREE: T } = this._three;
+    const w = this._stage.clientWidth, h = this._stage.clientHeight, v = new T.Vector3();
+    this._ov.querySelectorAll(".chip").forEach((c) => {
+      const G = this._groups[c.dataset.f];
+      if (!G) { c.style.visibility = "hidden"; return; }
+      v.set(+c.dataset.x, 30, +c.dataset.y).add(G.group.position).project(this._camera);
+      c.style.visibility = v.z < 1 ? "" : "hidden";
+      c.style.transform = `translate(${((v.x + 1) / 2) * w}px, ${((1 - v.y) / 2) * h}px) translate(-50%,-50%)`;
+    });
+  }
+
+  /* ---------- repli 2D si WebGL n'est pas disponible ---------- */
+  _flatLayout() {
+    const shown = this._shown(), w = this._stage.clientWidth || 800, h = this._stage.clientHeight || 500;
+    const stacked = w / h < 1.05;
+    let off = 0;
+    const out = {};
+    for (const f of shown) {
+      const xs = f.rooms.flatMap((r) => r.pts.map((p) => p[0])), ys = f.rooms.flatMap((r) => r.pts.map((p) => p[1]));
+      const x0 = Math.min(...xs), y0 = Math.min(...ys), x1 = Math.max(...xs), y1 = Math.max(...ys);
+      out[f.id] = stacked ? { dx: -x0, dy: off - y0 } : { dx: off - x0, dy: -y0 };
+      off += (stacked ? y1 - y0 : x1 - x0) + 60;
+      out._w = Math.max(out._w || 0, stacked ? x1 - x0 : off - 60);
+      out._h = Math.max(out._h || 0, stacked ? off - 60 : y1 - y0);
+    }
+    return out;
+  }
+  _drawFlat() {
+    let svg = this._stage.querySelector("svg");
+    if (!svg) { svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"); this._stage.insertBefore(svg, this._ov); }
+    const L = this._flatLayout();
+    svg.setAttribute("viewBox", `-20 -20 ${L._w + 40} ${L._h + 40}`);
+    let s = "";
+    for (const f of this._shown()) for (const r of f.rooms) {
+      const cs = r.climate && this._hass.states[r.climate];
+      const t = cs ? parseFloat(cs.attributes.current_temperature) : NaN;
+      const col = mcTempColor(t);
+      s += `<polygon data-e="${r.climate || (r.devices && r.devices[0] && r.devices[0].entity) || ""}" points="${r.pts.map((p) => `${p[0] + L[f.id].dx},${p[1] + L[f.id].dy}`).join(" ")}" fill="${col}" fill-opacity="${isNaN(t) ? .1 : .3}" stroke="#cfd6ff" stroke-opacity=".7" stroke-width="5"/>`;
+    }
+    svg.innerHTML = s;
+    svg.querySelectorAll("polygon").forEach((p) => p.addEventListener("click", () => p.dataset.e && mcMoreInfo(this, p.dataset.e)));
+  }
+  _placeFlat() {
+    const L = this._flatLayout(), w = this._stage.clientWidth, h = this._stage.clientHeight;
+    const vw = L._w + 40, vh = L._h + 40, k = Math.min(w / vw, h / vh), ox = (w - vw * k) / 2, oy = (h - vh * k) / 2;
+    this._ov.querySelectorAll(".chip").forEach((c) => {
+      const o = L[c.dataset.f];
+      c.style.transform = `translate(${ox + (+c.dataset.x + o.dx + 20) * k}px, ${oy + (Math.max(+c.dataset.y, 0) + o.dy + 20) * k}px) translate(-50%,-50%)`;
     });
   }
 
@@ -918,7 +1145,7 @@ customElements.define("maison-lights-card", MaisonLightsCard);
 
 window.customCards = window.customCards || [];
 window.customCards.push(
-  { type: "maison-3d-card", name: "Maison 3D", description: "Vue isométrique interactive de la maison" },
+  { type: "maison-3d-card", name: "Maison 3D", description: "Modèle 3D interactif de la maison" },
   { type: "maison-hero-card", name: "Maison – Accueil", description: "Horloge, météo et statut de la maison" },
   { type: "maison-stat-card", name: "Maison – KPI", description: "Tuile de statistique en verre" },
   { type: "maison-energy-card", name: "Maison – Énergie", description: "Consommation du jour, répartition Hilo et facture Hydro-Québec" },

@@ -20,6 +20,7 @@ def build() -> str:
              f"   Sources : www/maison-cards/ — https://github.com/Saff-Buraq-Dev/maison-home-assistant */\n"]
     for name in ORDER:
         code = (SRC / name).read_text(encoding="utf-8")
+        code = code.replace("__MAISON_VERSION__", version)
         code = DEFINE.sub(lambda m: f'(customElements.get("{m.group(1)}") || customElements.define("{m.group(1)}", {m.group(2)}))', code)
         parts.append(f"\n/* ===== {name} ===== */\n{{\n{code.rstrip()}\n}}\n")
     parts.append(f'\nconsole.info("%c MAISON-HOME-ASSISTANT %c v{version} ", "background:#6d7cff;color:#fff;border-radius:4px 0 0 4px;padding:2px 6px", "background:#1b1f45;color:#fff;border-radius:0 4px 4px 0;padding:2px 6px");\n')

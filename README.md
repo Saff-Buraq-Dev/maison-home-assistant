@@ -24,7 +24,7 @@ tableau de bord mural pour tablette, cartes custom, automatisations, helpers et 
 
 | Fichier | Cartes | Rôle |
 |---|---|---|
-| `maison-cards.js` | `maison-hero-card`, `maison-stat-card`, `maison-energy-card`, `maison-lights-card`, `maison-3d-card` | En-tête (heure, météo, prévisions, pastilles), tuiles KPI, énergie du jour, lumières, maison 3D |
+| `maison-cards.js` | `maison-hero-card`, `maison-stat-card`, `maison-energy-card`, `maison-lights-card`, `maison-3d-card` | En-tête (heure, météo, prévisions, pastilles), tuiles KPI, énergie du jour, lumières, maison 3D (modèle réel issu de `plans/`) |
 | `maison-devices.js` | `maison-devices-card` | Liste compacte d'équipements (états, mesures, interrupteurs, jauges de pile) |
 | `maison-prayer.js` | `maison-prayer-card` | Horaires des prières (ISNA, calcul local) et compte à rebours |
 | `maison-foot.js` | `maison-foot-card`, `maison-foot-team-card` | Football : Tunisie, Club Africain, Manchester United (résultats, prochains matchs, direct) |

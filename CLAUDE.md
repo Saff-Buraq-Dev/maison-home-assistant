@@ -17,6 +17,7 @@ version dans `VERSION`. Publication : commit → tag `vX.Y.Z` → l'action *Rele
 Détails : `docs/deploiement.md`. Toujours `node --check` et tester avec `tools/dev/` (Playwright + hass simulé) avant de tagger.
 - `maison-cards.js` : hero (heure, météo + prévisions 5 j via `weather/subscribe_forecast`, pastilles), stat, energy, lights, 3d
 - `maison-devices.js` : liste d'équipements · `maison-prayer.js` : prières · `maison-foot.js` : foot (accueil + fiches)
+- `maison-3d-card` : modèle réel (three.js) issu de `plans/*.sh3d` ; chaîne dans `tools/plan3d/`. Fichiers chargés à la demande : `dist/maison-3d-vendor.js`, `dist/maison-*.glb`. Repli 2D sans WebGL.
 - Club Africain : ESPN n'a pas de logo → écusson officiel `https://clubafricain.com/ca-crest.png` (repli api-sports 988).
 
 ## Style (à respecter partout)
@@ -42,8 +43,6 @@ Détails : `docs/deploiement.md`. Toujours `node --check` et tester avec `tools/
   helpers `sensor.puissance_chauffage_hilo`, `sensor.puissance_appareils_hilo`, `sensor.puissance_autres_appareils`.
 
 ## À faire / idées en attente
-- Maison 3D : refaire à partir du fichier Sweet Home 3D (RDC : salon, entrée, bureaux Saff/Meriem en L, corridor, cuisine,
-  salle à manger, SdB, chambre des maîtres ; ≈ 11,1 × 7,5 m) — fichier .sh3d pas encore fourni.
 - Présence de la famille (≈5 iPhones) puis automatisation « maison vide » (baisser le chauffage) ; zone home à 100 m.
 - Adhan sur enceinte (Alexa compliqué ; enceinte Google/Sonos recommandée) + intégration Islamic Prayer Times.
 - Notifications de but ; System Monitor ; Kiosk Mode pour la tablette ; mise en place de git + déploiement `/config/www`.
